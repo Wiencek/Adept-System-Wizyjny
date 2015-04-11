@@ -18,5 +18,5 @@ Wysyłanie zmian na serwer repozytorium.
 Po zedytowaniu bądź dodaniu plików do katalogu /trunk trzeba jeszcze je wysłać na serwer SVN jeśli chce się by inni zobaczyli wprowadzone zmiany. 
 1. Robi się to poprzez opcję o nazwie "SVN Commit..." znajdującą się tuż pod "SVN Update" w menu kontekstowym. 
 2. Tutaj wybiera się które pliki chce się aby zostały uaktualnione na serwerze, można kliknąć na All żeby wybrać wszystkie (co jest przydatne jeśli wprowadziło się dużo zmian)
-3. Po wybraniu plików należy kliknąć OK po czym Tortoise poprosi o podanie nazwy użytkownika i hasła do konta stworzonego na githubie.
+3. Po wybraniu plików należy kliknąć OK po czym Tortoise poprosi o podanie nazwy użytkownika i hasła do konta stworzonego na githubie. Zaznaczenie "Save authentication" zapisze dane do logowania dzięki czemu nie trzeba będzie więcej ich podawać. (no chyba że zmieni się hasło do konta)
 4. Wysłanie zmian powinno się udać jeśli dodałem was do listy osób które mogą edytować repo oraz podaliście Tortoise poprawne dane do logowania :P
