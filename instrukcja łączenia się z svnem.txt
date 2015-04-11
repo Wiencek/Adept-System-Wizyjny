@@ -1,0 +1,22 @@
+Przede wszystkim potrzebujecie konta :P
+1. Stworzyć konto na https://github.com
+2. Podać mi nazwę konta żebym mógł je dodać do osób mogących edytować repozytorium :P
+
+Ustawienia początkowe do korzystania z SVNa.
+1. Pobrać TortoiseSVN 1.8.11 z tej strony: http://tortoisesvn.net/downloads.html
+2. Zainstalować
+3. Stworzyć jakiś folder w którym będzie trzymało się pliki sklonowane z repozytorium, polecam coś w rodzaju /jakiśfolder/Adept/SVN żeby w katalogu /SVN trzymać wszystko co jest na serwerze a w katalogu nadrzędnym Adept trzymać jakieś swoje pierdoły z związane z samym projektem (żeby ich nie uplodować do repozytorium jeśli nie są na nim absolutnie potrzebne co by wszystko zajmowało jak najmniej miejsca)
+4. Kliknąć prawym przyciskiem na folderze /SVN (nazwa nie ma znaczenia, ja taką mam u siebie)
+5. Wybrać "SVN Checkout..." i w polu "URL of repository" wkleić: https://github.com/Wiencek/Adept-System-Wizyjny.git
+6. Nic więcej nie wymaga zmiany, po naciśnięciu OK, Tortoise pobierze najnowszą wersję repozytorium z serwera do katalogu /SVN/trunk
+
+Uaktualnianie plików pobranych z repozytorium.
+Katalog nie uaktualnia się automatycznie, dlatego przed rozpoczęciem wprowadzania zmian w plikach najlepiej najpierw je uaktualnić żeby pracować na najnowszej wersji.
+1. Z menu kontekstowego pod prawym przyciskiem wybrać "SVN Update" (można kliknąć albo na katalogu SVN albo na samym katalogu trunk co wymusi uaktualnienie tylko katalogu trunk, można nawet uaktualniać pojedyńcze pliki, polecam robić jednak pełny update, na wszelki wypadek)
+
+Wysyłanie zmian na serwer repozytorium.
+Po zedytowaniu bądź dodaniu plików do katalogu /trunk trzeba jeszcze je wysłać na serwer SVN jeśli chce się by inni zobaczyli wprowadzone zmiany. 
+1. Robi się to poprzez opcję o nazwie "SVN Commit..." znajdującą się tuż pod "SVN Update" w menu kontekstowym. 
+2. Tutaj wybiera się które pliki chce się aby zostały uaktualnione na serwerze, można kliknąć na All żeby wybrać wszystkie (co jest przydatne jeśli wprowadziło się dużo zmian)
+3. Po wybraniu plików należy kliknąć OK po czym Tortoise poprosi o podanie nazwy użytkownika i hasła do konta stworzonego na githubie.
+4. Wysłanie zmian powinno się udać jeśli dodałem was do listy osób które mogą edytować repo oraz podaliście Tortoise poprawne dane do logowania :P
