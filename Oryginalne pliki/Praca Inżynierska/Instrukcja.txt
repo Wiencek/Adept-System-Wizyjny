@@ -1,0 +1,26 @@
+Aby korzystaæ z oprogramowania dostarczonego na p³ycie nale¿y:
+
+1. Uruchomiæ kamerê IP zgodnie z jej instrukcj¹, nale¿y pamiêtaæ o zapisaniu adresu IP kamery.
+
+2. Uruchomiæ plik Camera.exe, znajduj¹cy siê w folderze z oprogramowaniem.
+* nale¿y wpisaæ w odpowiednim polu dane logowania do kamery (adres oraz has³o)
+* po uruchomieniu przycisku "connect" w obszarze programu powinien pojawiæ siê obraz z kamery
+* przyciskiem "get image" w pamiêci programu zapisywana jest aktualna klatka obrazu
+* wartoœci binaryzacji nale¿y dobraæ tak, aby w obszarze obrazu widoczne by³y wy³¹cznie bia³e detale oraz czarne t³o
+* parametry operacji morfologicznych nale¿y dobraæ tak, aby w obszarze obrazu nie wystepowa³y niechciane, pojedyncze piksele, detale nie powinny mieæ tak¿e dziór.
+* przyciskiem test, uruchomiony zostaje algorytm wyszukiwania detali, je¿eli dane wyœwietlone w polu tekstowym s¹ poprawne, nale¿y zachowaæ ustawienia przyciskiem "save settings"\
+* mo¿na teraz uruchmiæ serwer aplikacji przyciskiem "Start server"
+
+3. Uruchomiæ kontroler robota 
+* wgraæ program communication znajduj¹cy sie na p³ycie (nalezy pamiêtaæ o poprawnym wpisaniu adresu IP komputera w kodzie programu)
+* uruchomiæ monitor terminal
+* w³¹czyæ program
+* po uruchomieniu programu powinno zostaæ utworzone po³¹czenie, program czeka na komende tekstow¹ po której analizuje obraz z kamery i wysy³a wspo³rzêdne detali.
+
+*** Nalezy pamiêtaæ aby wszystkie urz¹dzenia pracowa³y wewn¹trz jednej rodziny adresów IP***
+
+Na p³ycie za³¹czono:
+-Pracê in¿yniersk¹ w jêzyku angielskim
+-Pracê in¿yniersk¹ w jêzyku polskim
+-Program komputerowy
+-Kod Ÿród³owy programu kontrolera robota

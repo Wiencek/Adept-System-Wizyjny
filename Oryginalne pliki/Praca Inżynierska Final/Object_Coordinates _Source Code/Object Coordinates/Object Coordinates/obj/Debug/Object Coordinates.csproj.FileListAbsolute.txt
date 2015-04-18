@@ -1,0 +1,26 @@
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.exe.config
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.exe
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.pdb
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.csprojResolveAssemblyReference.cache
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object_Coordinates.Form1.resources
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object_Coordinates.Properties.Resources.resources
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.csproj.GenerateResource.Cache
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.exe
+e:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.pdb
+E:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.exe.manifest
+E:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.application
+E:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.exe.manifest
+E:\Studia\Engineer\Main_Program\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.application
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.exe.config
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.exe
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.pdb
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.exe.manifest
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.application
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.exe
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\bin\Debug\Object Coordinates.pdb
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.csprojResolveAssemblyReference.cache
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object_Coordinates.Form1.resources
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object_Coordinates.Properties.Resources.resources
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.csproj.GenerateResource.Cache
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.exe.manifest
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Object_Coordinates _Source Code\Object Coordinates\Object Coordinates\obj\Debug\Object Coordinates.application

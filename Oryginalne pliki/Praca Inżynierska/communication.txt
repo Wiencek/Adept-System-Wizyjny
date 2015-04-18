@@ -1,0 +1,56 @@
+AUTO do_wait, lun, mlun, repeat_loop, status
+        AUTO $inp_str, $read_str
+
+; Initialize constants.
+
+        do_wait = 0
+
+; Attach to the TCP device
+
+        ATTACH (lun, 4) "TCP"
+        TYPE "lun: ", lun
+        status = IOSTAT(lun)            ;Check status of ATTACH
+        IF status < 0 THEN
+            TYPE "Error from ATTACH: ", $ERROR(status)
+            GOTO 100
+        END
+
+        
+
+fset tcp /node 'SERVER2' /address 192 9 200 22
+
+        mlun = 4
+        ATTACH (mlun)
+        
+
+
+        repeat_loop = TRUE
+        WHILE repeat_loop DO
+            TYPE "Input a string: ", /S
+            READ (mlun) $inp_str        ;Get input from Monitor
+		FOPEN (lun, 0) "cell2 /REMOTE_PORT 1234 /BUFFER_SIZE 1024"
+      	  	status = IOSTAT(lun)            ;Check status of FOPEN
+        	IF status < 0 THEN
+            TYPE "Error from FOPEN: ", $ERROR(status)
+            GOTO 100
+        END
+
+            WRITE (lun) $inp_str        ;Send to the server
+            TYPE "The string typed is: ", $inp_str
+            TYPE
+            IF $inp_str == "quit" THEN
+                repeat_loop = FALSE     ;We're going to stop
+            END
+            READ (lun, do_wait) $read_str ;Get reply from the server
+            TYPE "The echoed string is: ", $read_str
+        END
+
+; Close open connection and access to Monitor, and release logical units.
+
+   100  FCLOSE (lun)
+        DETACH (lun)
+        FCLOSE (mlun)
+        DETACH (mlun)
+
+        RETURN
+.END
