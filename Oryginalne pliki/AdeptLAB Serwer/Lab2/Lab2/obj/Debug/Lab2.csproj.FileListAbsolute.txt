@@ -1,0 +1,11 @@
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\bin\Debug\Lab2.exe.config
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Lab2.Form1.resources
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Lab2.csproj.GenerateResource.Cache
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\bin\Debug\Lab2.exe
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\bin\Debug\Lab2.pdb
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Interop.ActiveV2Lib.dll
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Lab2.csproj.ResolveComReference.cache
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Lab2.exe
+C:\Users\John\Desktop\BaransArtwork\Lab2\Lab2\obj\Debug\Lab2.pdb

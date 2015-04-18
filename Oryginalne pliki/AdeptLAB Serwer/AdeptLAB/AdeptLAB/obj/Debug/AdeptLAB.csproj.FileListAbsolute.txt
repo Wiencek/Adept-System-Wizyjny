@@ -1,0 +1,11 @@
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\bin\Debug\AdeptLAB.exe.config
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\bin\Debug\AdeptLAB.exe
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\bin\Debug\AdeptLAB.pdb
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\AdeptLAB.csprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\Interop.ActiveV2Lib.dll
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\AdeptLAB.csproj.ResolveComReference.cache
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\AdeptLAB.Form1.resources
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\AdeptLAB.Properties.Resources.resources
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\AdeptLAB.csproj.GenerateResource.Cache
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\AdeptLAB.exe
+C:\Users\John\Desktop\BaransArtwork\AdeptLAB\AdeptLAB\obj\Debug\AdeptLAB.pdb
