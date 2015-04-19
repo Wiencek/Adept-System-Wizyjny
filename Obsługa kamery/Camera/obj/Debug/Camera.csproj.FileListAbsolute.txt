@@ -1,0 +1,71 @@
+e:\Studia\Engineer\Camera\Camera\bin\Debug\Camera.exe.config
+e:\Studia\Engineer\Camera\Camera\bin\Debug\Camera.exe
+e:\Studia\Engineer\Camera\Camera\bin\Debug\Camera.pdb
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.dll
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Video.dll
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.xml
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Video.xml
+e:\Studia\Engineer\Camera\Camera\obj\Debug\Camera.csprojResolveAssemblyReference.cache
+e:\Studia\Engineer\Camera\Camera\obj\Debug\Camera.Form1.resources
+e:\Studia\Engineer\Camera\Camera\obj\Debug\Camera.Properties.Resources.resources
+e:\Studia\Engineer\Camera\Camera\obj\Debug\Camera.csproj.GenerateResource.Cache
+e:\Studia\Engineer\Camera\Camera\obj\Debug\Camera.exe
+e:\Studia\Engineer\Camera\Camera\obj\Debug\Camera.pdb
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Controls.dll
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Imaging.dll
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Math.dll
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Controls.xml
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Imaging.xml
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Math.xml
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Video.DirectShow.dll
+e:\Studia\Engineer\Camera\Camera\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\Camera.exe.config
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.exe
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.pdb
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\Camera.exe
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\Camera.pdb
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Controls.dll
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.dll
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Imaging.dll
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Math.dll
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Video.dll
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.xml
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Controls.xml
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Imaging.xml
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Math.xml
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Video.xml
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.csprojResolveAssemblyReference.cache
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.Form1.resources
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.Properties.Resources.resources
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.csproj.GenerateResource.Cache
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\Camera.exe.manifest
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\bin\Debug\Camera.application
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.exe.manifest
+C:\Users\Krzysztof Palka\Desktop\Na płyte\Camera_Coordinates_Source_Code\Camera\obj\Debug\Camera.application
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\Camera.exe.config
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.exe
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.pdb
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\Camera.exe.manifest
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\Camera.application
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\Camera.exe
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\Camera.pdb
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Controls.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Imaging.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Math.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Video.DirectShow.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Video.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Controls.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Imaging.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Math.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Video.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\bin\Debug\AForge.Video.DirectShow.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.csprojResolveAssemblyReference.cache
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.Form1.resources
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.Properties.Resources.resources
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.csproj.GenerateResource.Cache
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.exe.manifest
+D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.application
