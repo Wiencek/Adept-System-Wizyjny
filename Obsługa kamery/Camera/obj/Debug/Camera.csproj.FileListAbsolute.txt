@@ -69,3 +69,6 @@ D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\C
 D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.csproj.GenerateResource.Cache
 D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.exe.manifest
 D:\Data\My Documents\Studia\SVN Adept\trunk\Koordynaty kamery\Camera\obj\Debug\Camera.application
+D:\Data\My Documents\Studia\SVN Adept\trunk\Obsługa kamery\Camera\bin\Debug\Camera.exe.config
+D:\Data\My Documents\Studia\SVN Adept\trunk\Obsługa kamery\Camera\obj\Debug\Camera.exe
+D:\Data\My Documents\Studia\SVN Adept\trunk\Obsługa kamery\Camera\obj\Debug\Camera.pdb
