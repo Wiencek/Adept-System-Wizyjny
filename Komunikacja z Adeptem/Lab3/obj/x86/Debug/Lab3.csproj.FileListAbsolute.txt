@@ -1,0 +1,12 @@
+G:\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.Properties.Resources.resources
+G:\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.csproj.GenerateResource.Cache
+G:\Adept_LAB_3\Lab3\Lab3\bin\Debug\Lab3.exe
+G:\Adept_LAB_3\Lab3\Lab3\bin\Debug\Lab3.pdb
+G:\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Interop.ActiveV2Lib.dll
+G:\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.csproj.ResolveComReference.cache
+G:\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.exe
+G:\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.pdb
+G:\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\AdeptLAB.Form1.resources
+C:\Users\Dworak\Documents\Piotr Dworak\Adept_LAB_3_skończone\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.csproj.ResolveComReference.cache
+C:\Users\Dworak\Documents\Piotr Dworak\Adept_LAB_3_skończone\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.exe
+C:\Users\Dworak\Documents\Piotr Dworak\Adept_LAB_3_skończone\Adept_LAB_3\Lab3\Lab3\obj\x86\Debug\Lab3.pdb
