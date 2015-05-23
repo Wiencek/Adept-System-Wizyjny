@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Camera.exe" version="1.0.0.0" publicKeyToken="b400b52a0a25a427" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Camera" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Camera.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.dll" size="17920">
+      <assemblyIdentity name="AForge" version="2.2.5.0" publicKeyToken="C1DB6FF4EAA06AEB" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>lmpHQGCorKcMc7oJ0Lb+I1MDWWHHEHuQA++HnAEP+No=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.Controls.dll" size="44544">
+      <assemblyIdentity name="AForge.Controls" version="2.2.5.0" publicKeyToken="A8AC264D1DC6B9D9" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4/z+NUxgNqOyZLyoY65w9npU/DZD4rOt9VPCl4eoRRU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.Imaging.dll" size="262656">
+      <assemblyIdentity name="AForge.Imaging" version="2.2.5.0" publicKeyToken="BA8DDEA9676CA48B" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>EH2pJgttJ5YzW1FvBDs2AlAAH+sK47HIQi+Qtbn24oI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.Math.dll" size="68096">
+      <assemblyIdentity name="AForge.Math" version="2.2.5.0" publicKeyToken="ABBA2E25397EE8C9" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>pPJMmkZwXGb/eDjDpMYXWfW6WO6KWwYdBTQMYdeQwLc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.Video.dll" size="20992">
+      <assemblyIdentity name="AForge.Video" version="2.2.5.0" publicKeyToken="CBFB6E07D173C401" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>uvpu0EyieCJwB0EnoEmN3gIsKp9Alsa7K448CLs9QE0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.Video.DirectShow.dll" size="61440">
+      <assemblyIdentity name="AForge.Video.DirectShow" version="2.2.5.0" publicKeyToken="61EA4348D43881B7" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Zm1EeY2U6voe0hr3npvAKT/9lvhjq12H94vO6e+f/Ws=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Camera.exe" size="20480">
+      <assemblyIdentity name="Camera" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>dbPah54VFvuX/7q880/vs/JkOA8C8NI1xsFszFlvIGY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Camera.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fzxBSr45tumrN8SNWWL0IeqRlxoh8+san/F4n6/GZJ4=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=Y510P\Krzysztof Palka" issuerKeyHash="3334994718dc43ac06b771cffd38dcf14f498f38" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ZeDKiMsYfk+/a+/yQGK66SWsZmrYutUv0YPUMdaE6PI=</DigestValue></Reference></SignedInfo><SignatureValue>Se91q4HaK4RXMboWJgEb+zo6Cz98/GJ+Hfo36rbo68XRk97EEdCRDbc6hpoUVpf0tu0q+VHTBt6nK5lRv16s8Lg/FCYZ7T7t2GcjjSMDrMQJZjUeAD4AOKJP8pF0sax9utS7eYlO2cfpHuZA5eqwfCS4QjTW725aHNrR5ZEj7Iw=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>oxlbz4jSWqofAlLnt5FEsSZwdIspCwyE9TfzfVbmrz5njK5qk81ZJGYEEhGg2A8O8jFtglALAM9ghNw3jLoKs/C4NFaWbyAsjin0Ko70C29kfB/LHwi00/3Xb8ybZqg09HlalfZkbzpnE66A2W9zXTKeaRTbCoe2ftqPHJMPzHM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f2e884d631d483d12fd5bad86a66ac25e9ba6240f2ef6bbf4f7e18cb88cae065" Description="" Url=""><as:assemblyIdentity name="Camera.exe" version="1.0.0.0" publicKeyToken="b400b52a0a25a427" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Y510P\Krzysztof Palka</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>m39+N3TlhTgUF9YTLBSwdgVMaUbM4KXc6YxSB0/CfG8=</DigestValue></Reference></SignedInfo><SignatureValue>lqf/QlN1eLUa6iHfwLdTv1G3xleZoiDCdICW6gF20ACoh93oqZZA+Z5Vyk84FVtBelYd6sycG4T7SVWtSTkawD9H4GQQCtSaLSH2uK7yJr7gxPRE9p9nEkqpEusUpk0PMFKz9afrvRlEea7rVIyQ0c5fSb7QxstJ5y1sR+cu5X4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>oxlbz4jSWqofAlLnt5FEsSZwdIspCwyE9TfzfVbmrz5njK5qk81ZJGYEEhGg2A8O8jFtglALAM9ghNw3jLoKs/C4NFaWbyAsjin0Ko70C29kfB/LHwi00/3Xb8ybZqg09HlalfZkbzpnE66A2W9zXTKeaRTbCoe2ftqPHJMPzHM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQYTZAMiHu1JtLtpDtDCf9ljANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioAWQA1ADEAMABQAFwASwByAHoAeQBzAHoAdABvAGYAIABQAGEAbABrAGEwHhcNMTUwMjI0MTI1NzIwWhcNMTYwMjI0MTg1NzIwWjA1MTMwMQYDVQQDHioAWQA1ADEAMABQAFwASwByAHoAeQBzAHoAdABvAGYAIABQAGEAbABrAGEwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKMZW8+I0lqqHwJS57eRRLEmcHSLKQsMhPU3831W5q8+Z4yuapPNWSRmBBIRoNgPDvIxbYJQCwDPYITcN4y6CrPwuDRWlm8gLI4p9CqO9AtvZHwfyx8ItNP912/Mm2aoNPR5WpX2ZG86ZxOugNlvc10ynmkU2wqHtn7ajxyTD8xzAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAMLe5JbvZuIdkeKXmd0TPrWjouUi2Pg7ismcojeymcedK/uzJT8QOjt6x3IqMKX+vW8sl4WBr7dgskjunrGZmmmxJ43z/Gk98iInyQpSMW8+Uy3slw1mG8EaC4SAOqWjK/sZkGFR3hc3GsdxyU1UXbz4N9wrm5ww7AtHXsF+0jYI=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
