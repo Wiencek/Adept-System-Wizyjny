@@ -195,6 +195,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "1: 2",
+            "2: 3"});
             this.listBox1.Location = new System.Drawing.Point(688, 225);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(200, 290);
@@ -418,6 +421,8 @@
             this.Controls.Add(this.videoSourcePlayer1);
             this.Name = "Camera";
             this.Text = "Camera coordinates";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Shown += new System.EventHandler(this.Camera_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxCameraAxis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFrame)).EndInit();
             this.panel1.ResumeLayout(false);

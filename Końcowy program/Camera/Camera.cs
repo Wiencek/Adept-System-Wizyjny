@@ -38,6 +38,43 @@ namespace CompleteProgram
             this.PictureBoxCameraAxis.Paint += new PaintEventHandler(PictureBoxCameraAxis_Paint);
         }
 
+        MainForm mainForm = null;
+        public Camera(MainForm callingForm, int cameranum, int paramsetnum) : this()
+        {
+            mainForm = callingForm;
+
+            MinH_value.Text = mainForm.calParams[cameranum, paramsetnum, 0].ToString();
+            MinW_value.Text = mainForm.calParams[cameranum, paramsetnum, 1].ToString();
+            if (mainForm.calParams[cameranum, paramsetnum, 2] == -1)
+            {
+                RLessThan.Select();
+            }
+            else
+            {
+                RMoreThan.Select();
+            }
+            R_value.Text = mainForm.calParams[cameranum, paramsetnum, 3].ToString();
+            if (mainForm.calParams[cameranum, paramsetnum, 4] == -1)
+            {
+                GLessThan.Select();
+            }
+            else
+            {
+                GMoreThan.Select();
+            }
+            G_value.Text = mainForm.calParams[cameranum, paramsetnum, 5].ToString();
+            if (mainForm.calParams[cameranum, paramsetnum, 6] == -1)
+            {
+                BLessThan.Select();
+            }
+            else
+            {
+                BMoreThan.Select();
+            }
+            B_value.Text = mainForm.calParams[cameranum, paramsetnum, 7].ToString();
+        }
+
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             videoSourcePlayer1.SignalToStop();
@@ -306,6 +343,46 @@ namespace CompleteProgram
                 }
             }
         }
+
+        private void Camera_Shown(object sender, EventArgs e)
+        {
+            //Connect_button.PerformClick();
+            //button2.PerformClick();
+            //button1.PerformClick();
+            //SaveButton.PerformClick();
+
+            using (StreamWriter writer = new StreamWriter(mainForm.filename))
+            {
+
+                writer.Write(listBox1.Items[0].ToString());
+                /*
+                int counter_of_blobs = 0;
+                foreach (var blob in blobs)
+                {
+                    counter_of_blobs++;
+                    if (counter_of_blobs < 192)
+                        writer.Write(blob.CenterOfGravity.X.ToString() + "\t");
+                    else
+                    {
+                        writer.WriteLine(blob.CenterOfGravity.X.ToString());
+                        counter_of_blobs = 0;
+                    }
+
+                }
+
+                foreach (var blob in blobs)
+                {
+                    counter_of_blobs++;
+                    if (counter_of_blobs < 192)
+                        writer.Write(blob.CenterOfGravity.Y.ToString() + "\t");
+                    else
+                        writer.Write(blob.CenterOfGravity.Y.ToString());
+                }*/
+            }
+
+            //this.Close();
+        }
+        
 
     }
 }

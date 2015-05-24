@@ -13,13 +13,26 @@ namespace CompleteProgram
     public partial class MainForm : Form
     {
         int[,,] CalibrationData;
+        CalParams _calParams;
         int PreviousClaibrationDataSet;
+        string _filenmame;
 
         public MainForm()
         {
             InitializeComponent();
             CalibrationData = new int[2, 5, 8] { { { 6, 6, -1, 20, -1, 40, 1, 60 }, { 5, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 } }, { { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 } } }; ;
+            _calParams = new CalParams(CalibrationData);
             PreviousClaibrationDataSet = -1;
+        }
+
+        public CalParams calParams
+        {
+            get { return _calParams; }
+        }
+
+        public string filename
+        {
+            get { return _filenmame; }
         }
 
         private void UpdateCalibrationData(object sender, EventArgs e)
@@ -151,5 +164,40 @@ namespace CompleteProgram
 
             PreviousClaibrationDataSet = combo.SelectedIndex;
         }
+
+        Camera frmCamera = null;
+        private void Start_Button_Click(object sender, EventArgs e)
+        {
+            for (int cameraindex = 0; cameraindex < 2; cameraindex++)
+            {
+                for (int paramindex = 0; paramindex < 5; paramindex++)
+                {
+                    _filenmame = "set_cam" + cameraindex.ToString() + "_paramset" + paramindex.ToString() + ".txt";
+                    frmCamera = new Camera(this, cameraindex, paramindex);
+                    frmCamera.ShowDialog();
+                }
+            }
+        }
+    }
+
+    public class CalParams
+    {
+        private int[,,] _calParams = null;
+
+        public CalParams()
+        {
+        }
+
+        public CalParams(int[,,] startupParams)
+        {
+            _calParams = startupParams;
+        }
+
+        public int this[int i1, int i2, int i3]
+        {
+            get { return _calParams[i1, i2, i3]; }
+            set { _calParams[i1, i2, i3] = value; }
+        }
+
     }
 }
