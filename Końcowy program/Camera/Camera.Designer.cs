@@ -438,19 +438,19 @@
 
         #endregion
 
-        private AForge.Controls.VideoSourcePlayer videoSourcePlayer1;
+        public AForge.Controls.VideoSourcePlayer videoSourcePlayer1;
         private System.Windows.Forms.TextBox Login;
         private System.Windows.Forms.TextBox Address;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Password;
-        private System.Windows.Forms.Button Connect_button;
+        public System.Windows.Forms.Button Connect_button;
         private System.Windows.Forms.CheckBox CameraAxisCheckBox;
         private System.Windows.Forms.PictureBox PictureBoxCameraAxis;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox PictureBoxFrame;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

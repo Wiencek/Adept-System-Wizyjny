@@ -341,6 +341,7 @@
             this.Password1.Size = new System.Drawing.Size(214, 20);
             this.Password1.TabIndex = 13;
             this.Password1.Text = "1234";
+            this.Password1.TextChanged += new System.EventHandler(this.LoginDataChange);
             // 
             // label3
             // 
@@ -376,6 +377,7 @@
             this.Address1.Size = new System.Drawing.Size(214, 20);
             this.Address1.TabIndex = 9;
             this.Address1.Text = "http://192.168.2.3/mjpg/video.mjpg";
+            this.Address1.TextChanged += new System.EventHandler(this.LoginDataChange);
             // 
             // Login1
             // 
@@ -384,6 +386,7 @@
             this.Login1.Size = new System.Drawing.Size(214, 20);
             this.Login1.TabIndex = 8;
             this.Login1.Text = "admin";
+            this.Login1.TextChanged += new System.EventHandler(this.LoginDataChange);
             // 
             // panel7
             // 
@@ -575,6 +578,7 @@
             this.Password2.Size = new System.Drawing.Size(214, 20);
             this.Password2.TabIndex = 13;
             this.Password2.Text = "1234";
+            this.Password2.TextChanged += new System.EventHandler(this.LoginDataChange);
             // 
             // label4
             // 
@@ -610,6 +614,7 @@
             this.Address2.Size = new System.Drawing.Size(214, 20);
             this.Address2.TabIndex = 9;
             this.Address2.Text = "http://192.168.2.3/mjpg/video.mjpg";
+            this.Address2.TextChanged += new System.EventHandler(this.LoginDataChange);
             // 
             // Login2
             // 
@@ -618,6 +623,7 @@
             this.Login2.Size = new System.Drawing.Size(214, 20);
             this.Login2.TabIndex = 8;
             this.Login2.Text = "admin";
+            this.Login2.TextChanged += new System.EventHandler(this.LoginDataChange);
             // 
             // Start_Button
             // 
@@ -655,6 +661,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

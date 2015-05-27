@@ -13,6 +13,8 @@ namespace CompleteProgram
     public partial class MainForm : Form
     {
         int[,,] CalibrationData;
+        string[,] LoginData;
+        bool isLoginChangeAllowed;
         CalParams _calParams;
         int PreviousClaibrationDataSet;
         string _filenmame;
@@ -20,9 +22,16 @@ namespace CompleteProgram
         public MainForm()
         {
             InitializeComponent();
-            CalibrationData = new int[2, 5, 8] { { { 6, 6, -1, 20, -1, 40, 1, 60 }, { 5, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 } }, { { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 }, { 6, 6, -1, 20, -1, 40, 1, 60 } } }; ;
-            _calParams = new CalParams(CalibrationData);
+            CalibrationData = new int[2, 5, 8] { { { 3, 4, 1, 170, -1, 110, -1, 40 }, { 9, 9, 1, 180, 1, 150, -1, 80 }, { 9, 9, -1, 100, 1, 90, -1, 110 }, { 9, 9, 1, 190, -1, 60, 1, 40 }, { 9, 9, -1, 170, 1, 100, 1, 130 } }, 
+                                                 { { 3, 4, 1, 130, -1, 150, -1, 50 }, { 9, 9, 1, 180, 1, 150, -1, 80 }, { 9, 9, -1, 60, 1, 40, -1, 110 }, { 9, 9, 1, 190, -1, 60, 1, 40 }, { 9, 9, -1, 170, 1, 100, 1, 130 } } }; ;
+            LoginData = new string[2, 3] { { "http://192.168.1.70/mjpg/video.mjpg", "admin", "1234" }, { "http://192.168.1.215/mjpg/video.mjpg", "admin", "1234" } };
+            _calParams = new CalParams(CalibrationData, LoginData);
             PreviousClaibrationDataSet = -1;
+            isLoginChangeAllowed = false;
+
+            DataSetSelect.DropDownStyle = ComboBoxStyle.DropDownList;
+            DataSetSelect.SelectedIndex = 0;
+
         }
 
         public CalParams calParams
@@ -33,6 +42,19 @@ namespace CompleteProgram
         public string filename
         {
             get { return _filenmame; }
+        }
+
+        private void LoginDataChange(object sender, EventArgs e)
+        {
+            if (isLoginChangeAllowed)
+            {
+                _calParams.LoginData[0, 0] = Address1.Text;
+                _calParams.LoginData[0, 1] = Login1.Text;
+                _calParams.LoginData[0, 2] = Password1.Text;
+                _calParams.LoginData[1, 0] = Address2.Text;
+                _calParams.LoginData[1, 1] = Login2.Text;
+                _calParams.LoginData[1, 2] = Password2.Text;
+            }
         }
 
         private void UpdateCalibrationData(object sender, EventArgs e)
@@ -178,25 +200,45 @@ namespace CompleteProgram
                 }
             }
         }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+
+            Address1.Text = _calParams.LoginData[0, 0];
+            Login1.Text = _calParams.LoginData[0, 1];
+            Password1.Text = _calParams.LoginData[0, 2];
+            Address2.Text = _calParams.LoginData[1, 0];
+            Login2.Text = _calParams.LoginData[1, 1];
+            Password2.Text = _calParams.LoginData[1, 2];
+            isLoginChangeAllowed = true;
+        }
     }
 
     public class CalParams
     {
         private int[,,] _calParams = null;
+        private string[,] _logindata = null;
 
         public CalParams()
         {
         }
 
-        public CalParams(int[,,] startupParams)
+        public CalParams(int[,,] startupParams, string[,] startupLoginData)
         {
             _calParams = startupParams;
+            _logindata = startupLoginData;
         }
 
-        public int this[int i1, int i2, int i3]
+        public string[,] LoginData
         {
-            get { return _calParams[i1, i2, i3]; }
-            set { _calParams[i1, i2, i3] = value; }
+            get { return _logindata; }
+            set { _logindata = value; }
+        }
+
+        public int this[int cameranum, int datanum, int i]
+        {
+            get { return _calParams[cameranum, datanum, i]; }
+            set { _calParams[cameranum, datanum, i] = value; }
         }
 
     }

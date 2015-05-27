@@ -43,6 +43,10 @@ namespace CompleteProgram
         {
             mainForm = callingForm;
 
+            Address.Text = mainForm.calParams.LoginData[cameranum, 0];
+            Login.Text = mainForm.calParams.LoginData[cameranum, 1];
+            Password.Text = mainForm.calParams.LoginData[cameranum, 2];
+
             MinH_value.Text = mainForm.calParams[cameranum, paramsetnum, 0].ToString();
             MinW_value.Text = mainForm.calParams[cameranum, paramsetnum, 1].ToString();
             if (mainForm.calParams[cameranum, paramsetnum, 2] == -1)
@@ -102,7 +106,6 @@ namespace CompleteProgram
             videoSourcePlayer1.Visible = true;
             videoSourcePlayer1.VideoSource = stream;
             videoSourcePlayer1.Start();
-
         }
 
         private void CameraAxisCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -305,9 +308,18 @@ namespace CompleteProgram
             PictureBoxFrame.Visible = true;
         }
 
+        bool _videoSourcePlayer1IsRunning = false;
         private void button2_Click(object sender, EventArgs e)
         {
-            bitmap = (Bitmap)videoSourcePlayer1.GetCurrentVideoFrame().Clone();
+            try
+            {
+                bitmap = (Bitmap)videoSourcePlayer1.GetCurrentVideoFrame().Clone();
+                _videoSourcePlayer1IsRunning = true;
+            }
+            catch
+            {
+                _videoSourcePlayer1IsRunning = false;
+            }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -346,16 +358,54 @@ namespace CompleteProgram
 
         private void Camera_Shown(object sender, EventArgs e)
         {
-            //Connect_button.PerformClick();
-            //button2.PerformClick();
-            //button1.PerformClick();
+            bw = new BackgroundWorker();
+            bw.WorkerSupportsCancellation = true;
+            bw.WorkerReportsProgress = false;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            isConnectDone = false;
+            bw.RunWorkerAsync();
+        }
+
+        BackgroundWorker bw;
+        bool isConnectDone;
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            if (!isConnectDone)
+            {
+                PerformButtonClick(Connect_button);
+                isConnectDone = true;
+            }
+
+            //videoSourcePlayer1IsRunning(videoSourcePlayer1);
+            if (_videoSourcePlayer1IsRunning)
+            {
+                PerformButtonClick(button1);
+                e.Cancel = true;
+                this.Close();
+            }
+            else
+            {
+                try
+                {
+                    PerformButtonClick(button2);
+                    _videoSourcePlayer1IsRunning = true;
+                }
+                catch
+                {
+                    _videoSourcePlayer1IsRunning = false;
+                }
+            }
+            
             //SaveButton.PerformClick();
 
+            /*
             using (StreamWriter writer = new StreamWriter(mainForm.filename))
             {
 
-                writer.Write(listBox1.Items[0].ToString());
-                /*
+                //writer.Write(listBox1.Items[0].ToString());
+            
                 int counter_of_blobs = 0;
                 foreach (var blob in blobs)
                 {
@@ -377,12 +427,49 @@ namespace CompleteProgram
                         writer.Write(blob.CenterOfGravity.Y.ToString() + "\t");
                     else
                         writer.Write(blob.CenterOfGravity.Y.ToString());
-                }*/
+                }
             }
 
-            //this.Close();
-        }
-        
+            this.Close();*/
+            
 
+            if ((worker.CancellationPending == true))
+            {
+                e.Cancel = true;
+            }
+
+            System.Threading.Thread.Sleep(500);
+        }
+
+        delegate void PerformButtonClickCallback(Button button);
+        private void PerformButtonClick(Button button)
+        {
+            if (button.InvokeRequired)
+            {
+                PerformButtonClickCallback d = new PerformButtonClickCallback(PerformButtonClick);
+                this.Invoke(d, new object[] { button });
+            }
+            else
+            {
+                button.PerformClick();
+            }
+        }
+
+        delegate void videoSourcePlayer1IsRunningCallback(VideoSourcePlayer videoSourcePlayer1);
+        private void videoSourcePlayer1IsRunning(VideoSourcePlayer videoSourcePlayer1)
+        {
+            if (videoSourcePlayer1.InvokeRequired)
+            {
+                videoSourcePlayer1IsRunningCallback d = new videoSourcePlayer1IsRunningCallback(videoSourcePlayer1IsRunning);
+                this.Invoke(d, new object[] { videoSourcePlayer1 });
+            }
+            else
+            {
+                if (videoSourcePlayer1.IsRunning)
+                {
+                    _videoSourcePlayer1IsRunning = true;
+                }
+            }
+        }
     }
 }
