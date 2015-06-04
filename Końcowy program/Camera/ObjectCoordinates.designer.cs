@@ -172,6 +172,7 @@
             this.label60 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.CalibrationTab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -603,7 +604,6 @@
             this.textBox_x2.Size = new System.Drawing.Size(100, 20);
             this.textBox_x2.TabIndex = 64;
             this.textBox_x2.Text = "-385";
-            this.textBox_x2.Leave += new System.EventHandler(this.textBox_x2_Leave);
             // 
             // label40
             // 
@@ -940,7 +940,6 @@
             this.textBox_x1.Size = new System.Drawing.Size(100, 20);
             this.textBox_x1.TabIndex = 36;
             this.textBox_x1.Text = "395";
-            this.textBox_x1.Leave += new System.EventHandler(this.textBox_x1_Leave);
             // 
             // label19
             // 
@@ -1572,14 +1571,18 @@
             this.label58.TabIndex = 0;
             this.label58.Text = "Coordinates of characteristic points:";
             // 
-            // Form1
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // ObjectCoordinates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 562);
             this.Controls.Add(this.tabControl1);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "ObjectCoordinates";
             this.Text = "Object Coordinates";
             this.tabControl1.ResumeLayout(false);
             this.CalibrationTab.ResumeLayout(false);
@@ -1744,6 +1747,7 @@
         private System.Windows.Forms.RichTextBox displayT;
         private System.Windows.Forms.Label label84;
         private System.Windows.Forms.Button Calculate;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

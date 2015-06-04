@@ -39,10 +39,10 @@ namespace CompleteProgram
         }
 
         MainForm mainForm = null;
-        public Camera(MainForm callingForm, int cameranum, int paramsetnum) : this()
+        public Camera(MainForm callingForm, int cameranum, int paramsetnum)
+            : this()
         {
             mainForm = callingForm;
-
             Address.Text = mainForm.calParams.LoginData[cameranum, 0];
             Login.Text = mainForm.calParams.LoginData[cameranum, 1];
             Password.Text = mainForm.calParams.LoginData[cameranum, 2];
@@ -76,6 +76,21 @@ namespace CompleteProgram
                 BMoreThan.Select();
             }
             B_value.Text = mainForm.calParams[cameranum, paramsetnum, 7].ToString();
+
+            
+        }
+
+        public Camera(MainForm callingForm, int cameranum, int paramsetnum, int usebw)
+            : this(callingForm, cameranum, paramsetnum)
+        {
+
+            bw = new BackgroundWorker();
+            bw.WorkerSupportsCancellation = true;
+            bw.WorkerReportsProgress = false;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_Complete);
+            isConnectDone = false;
+            bw.RunWorkerAsync();
         }
 
 
@@ -106,6 +121,8 @@ namespace CompleteProgram
             videoSourcePlayer1.Visible = true;
             videoSourcePlayer1.VideoSource = stream;
             videoSourcePlayer1.Start();
+
+            isConnectDone = true;
         }
 
         private void CameraAxisCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -145,6 +162,8 @@ namespace CompleteProgram
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+
             videoSourcePlayer1.SignalToStop();
             videoSourcePlayer1.Stop();
             videoSourcePlayer1.Visible = false;
@@ -292,8 +311,10 @@ namespace CompleteProgram
                     }
                 }
             }
-            else if(blobs.Length > 10)
-                MessageBox.Show("Wrong RGB value","Error");
+            else if (blobs.Length > 10)
+            {
+                //MessageBox.Show("Wrong RGB value","Error");
+            }
 
 
             foreach (var blob in blobs)
@@ -358,88 +379,83 @@ namespace CompleteProgram
 
         private void Camera_Shown(object sender, EventArgs e)
         {
-            bw = new BackgroundWorker();
-            bw.WorkerSupportsCancellation = true;
-            bw.WorkerReportsProgress = false;
-            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
-            isConnectDone = false;
-            bw.RunWorkerAsync();
+            
         }
 
         BackgroundWorker bw;
         bool isConnectDone;
+        bool isDone;
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
 
-            if (!isConnectDone)
-            {
-                PerformButtonClick(Connect_button);
-                isConnectDone = true;
-            }
+            isConnectDone = false;
 
-            //videoSourcePlayer1IsRunning(videoSourcePlayer1);
-            if (_videoSourcePlayer1IsRunning)
+            isDone = false;
+            while (!isDone)
             {
-                PerformButtonClick(button1);
-                e.Cancel = true;
-                this.Close();
-            }
-            else
-            {
-                try
+                if (!isConnectDone)
+                {
+                    PerformButtonClick(Connect_button);
+                    //isConnectDone = true;
+                }
+
+                //videoSourcePlayer1IsRunning(videoSourcePlayer1);
+                if (_videoSourcePlayer1IsRunning)
+                {
+                    PerformButtonClick(button1);
+                    using (StreamWriter writer = new StreamWriter(mainForm.filename))
+                    {
+
+                        //writer.Write(listBox1.Items[0].ToString());
+
+                        int counter_of_blobs = 0;
+                        foreach (var blob in blobs)
+                        {
+                            counter_of_blobs++;
+                            if (counter_of_blobs < blobs.GetLength(0))
+                                writer.Write(blob.CenterOfGravity.X.ToString() + "\t");
+                            else
+                            {
+                                writer.WriteLine(blob.CenterOfGravity.X.ToString());
+                                counter_of_blobs = 0;
+                            }
+
+                        }
+
+                        foreach (var blob in blobs)
+                        {
+                            counter_of_blobs++;
+                            if (counter_of_blobs < blobs.GetLength(0))
+                                writer.Write(blob.CenterOfGravity.Y.ToString() + "\t");
+                            else
+                                writer.Write(blob.CenterOfGravity.Y.ToString());
+                        }
+                        isDone = true;
+                    }
+                }
+                else
                 {
                     PerformButtonClick(button2);
-                    _videoSourcePlayer1IsRunning = true;
                 }
-                catch
+
+                //SaveButton.PerformClick();
+
+
+                if ((worker.CancellationPending == true))
                 {
-                    _videoSourcePlayer1IsRunning = false;
-                }
-            }
-            
-            //SaveButton.PerformClick();
-
-            /*
-            using (StreamWriter writer = new StreamWriter(mainForm.filename))
-            {
-
-                //writer.Write(listBox1.Items[0].ToString());
-            
-                int counter_of_blobs = 0;
-                foreach (var blob in blobs)
-                {
-                    counter_of_blobs++;
-                    if (counter_of_blobs < 192)
-                        writer.Write(blob.CenterOfGravity.X.ToString() + "\t");
-                    else
-                    {
-                        writer.WriteLine(blob.CenterOfGravity.X.ToString());
-                        counter_of_blobs = 0;
-                    }
-
+                    e.Cancel = true;
                 }
 
-                foreach (var blob in blobs)
-                {
-                    counter_of_blobs++;
-                    if (counter_of_blobs < 192)
-                        writer.Write(blob.CenterOfGravity.Y.ToString() + "\t");
-                    else
-                        writer.Write(blob.CenterOfGravity.Y.ToString());
-                }
+                System.Threading.Thread.Sleep(500);
             }
-
-            this.Close();*/
-            
-
-            if ((worker.CancellationPending == true))
-            {
-                e.Cancel = true;
-            }
-
-            System.Threading.Thread.Sleep(500);
         }
+
+        private void bw_Complete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Close();
+        }
+        
 
         delegate void PerformButtonClickCallback(Button button);
         private void PerformButtonClick(Button button)

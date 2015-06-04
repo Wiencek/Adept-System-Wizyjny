@@ -96,15 +96,27 @@ namespace CompleteProgram
             T = new double[4, 4];
         }
 
+        public ObjectCoordinates(MainForm callingForm, double cam1x, double cam1y, double cam1z, double cam2x, double cam2y, double cam2z) : this()
+        {
+            textBox_x1.Text = cam1x.ToString();
+            textBox_y1.Text = cam1y.ToString();
+            textBox_z1.Text = cam1z.ToString();
+            textBox_x2.Text = cam2x.ToString();
+            textBox_y2.Text = cam2y.ToString();
+            textBox_z2.Text = cam2z.ToString();
+
+            backgroundWorker1.RunWorkerAsync();
+        }
+
         private void Load1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Text files (*.txt)|*.txt";
-            openFileDialog1.CheckFileExists = true;
-            openFileDialog1.CheckPathExists = true;
-            DialogResult result = openFileDialog1.ShowDialog();
-            if(result == DialogResult.OK)
-            {
-                using(System.IO.StreamReader reader = new System.IO.StreamReader(openFileDialog1.FileName))
+            //openFileDialog1.Filter = "Text files (*.txt)|*.txt";
+            //openFileDialog1.CheckFileExists = true;
+            //openFileDialog1.CheckPathExists = true;
+            //DialogResult result = openFileDialog1.ShowDialog();
+            //if(result == )
+            //{
+                using(System.IO.StreamReader reader = new System.IO.StreamReader("set_cam0_paramset0.txt"))
                 {
                     int wordCounter;
                     for (int k = 0; k < 2; k++)
@@ -124,7 +136,7 @@ namespace CompleteProgram
                 }
                 Calibrate1.Enabled = true;
                 Camera1Error.Enabled = false;
-            }
+            //}
         }
 
         private void Calibrate1_Click(object sender, EventArgs e)
@@ -163,13 +175,13 @@ namespace CompleteProgram
 
         private void Load2_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Text files (*.txt)|*.txt";
-            openFileDialog1.CheckFileExists = true;
-            openFileDialog1.CheckPathExists = true;
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                using (System.IO.StreamReader reader = new System.IO.StreamReader(openFileDialog1.FileName))
+            //openFileDialog1.Filter = "Text files (*.txt)|*.txt";
+            //openFileDialog1.CheckFileExists = true;
+            //openFileDialog1.CheckPathExists = true;
+            //DialogResult result = openFileDialog1.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            using (System.IO.StreamReader reader = new System.IO.StreamReader("set_cam1_paramset0.txt"))
                 {
                     int wordCounter;
                     for (int k = 0; k < 2; k++)
@@ -189,7 +201,7 @@ namespace CompleteProgram
                 }
                 Calibrate2.Enabled = true;
                 Camera2Error.Enabled = false;
-            }
+            //}
         }
 
         private void Calibrate2_Click(object sender, EventArgs e)
@@ -356,5 +368,83 @@ namespace CompleteProgram
             }
         }
 
+        bool isDone;
+        string _filenmame;
+        int wordCounter;
+        string line;
+        string[] words;
+        double[,,] objcoords;
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            objcoords = new double[2, 4, 2];
+
+            isDone = false;
+            while (!isDone)
+            {
+                PerformButtonClick(Load1);
+                PerformButtonClick(Calibrate1);
+                PerformButtonClick(Load2);
+                PerformButtonClick(Calibrate2);
+
+                //11 = yellow
+                //12 = green
+                //13 = pink
+                //14 = blue
+
+                for (int cameraindex = 0; cameraindex < 2; cameraindex++)
+                {
+                    for (int paramindex = 1; paramindex < 5; paramindex++)
+                    {
+                        _filenmame = "set_cam" + cameraindex.ToString() + "_paramset" + paramindex.ToString() + ".txt";
+                        using (System.IO.StreamReader reader = new System.IO.StreamReader(_filenmame))
+                        {
+                            for (int k = 0; k < 2; k++)
+                            {
+                                //wordCounter = 0;
+                                line = reader.ReadLine();
+                                words = line.Split('\t');
+                                objcoords[cameraindex, paramindex - 1, k] = Double.Parse(words[0]);
+                            }
+                        }
+                    }
+                }
+
+                x11.Text = objcoords[0, 0, 0].ToString();
+                x12.Text = objcoords[0, 1, 0].ToString();
+                x13.Text = objcoords[0, 2, 0].ToString();
+                x14.Text = objcoords[0, 3, 0].ToString();
+                y11.Text = objcoords[0, 0, 1].ToString();
+                y12.Text = objcoords[0, 1, 1].ToString();
+                y13.Text = objcoords[0, 2, 1].ToString();
+                y14.Text = objcoords[0, 3, 1].ToString();
+
+                x21.Text = objcoords[1, 0, 0].ToString();
+                x22.Text = objcoords[1, 1, 0].ToString();
+                x23.Text = objcoords[1, 2, 0].ToString();
+                x24.Text = objcoords[1, 3, 0].ToString();
+                y21.Text = objcoords[1, 0, 1].ToString();
+                y22.Text = objcoords[1, 1, 1].ToString();
+                y23.Text = objcoords[1, 2, 1].ToString();
+                y24.Text = objcoords[1, 3, 1].ToString();
+
+                PerformButtonClick(Calculate);
+
+                isDone = true;
+            }
+        }
+
+        delegate void PerformButtonClickCallback(Button button);
+        private void PerformButtonClick(Button button)
+        {
+            if (button.InvokeRequired)
+            {
+                PerformButtonClickCallback d = new PerformButtonClickCallback(PerformButtonClick);
+                this.Invoke(d, new object[] { button });
+            }
+            else
+            {
+                button.PerformClick();
+            }
+        }
     }
 }
