@@ -98,6 +98,7 @@
             this.Start_Button = new System.Windows.Forms.Button();
             this.DataSetSelect = new System.Windows.Forms.ComboBox();
             this.GetObjectPosButton = new System.Windows.Forms.Button();
+            this.ShowCoordsForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -806,11 +807,22 @@
             this.GetObjectPosButton.UseVisualStyleBackColor = true;
             this.GetObjectPosButton.Click += new System.EventHandler(this.GetObjectPosButton_Click);
             // 
+            // ShowCoordsForm
+            // 
+            this.ShowCoordsForm.Location = new System.Drawing.Point(706, 300);
+            this.ShowCoordsForm.Name = "ShowCoordsForm";
+            this.ShowCoordsForm.Size = new System.Drawing.Size(155, 49);
+            this.ShowCoordsForm.TabIndex = 62;
+            this.ShowCoordsForm.Text = "Show Coords Form";
+            this.ShowCoordsForm.UseVisualStyleBackColor = true;
+            this.ShowCoordsForm.Click += new System.EventHandler(this.shwcordsform);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 370);
+            this.Controls.Add(this.ShowCoordsForm);
             this.Controls.Add(this.GetObjectPosButton);
             this.Controls.Add(this.DataSetSelect);
             this.Controls.Add(this.Start_Button);
@@ -913,5 +925,6 @@
         private System.Windows.Forms.TextBox cam2y;
         private System.Windows.Forms.TextBox cam2x;
         private System.Windows.Forms.Button ShowCam2Frm;
+        private System.Windows.Forms.Button ShowCoordsForm;
     }
 }

@@ -270,6 +270,7 @@ namespace CompleteProgram
 
         Camera frmCamera = null;
         ObjectCoordinates frmObjCoords = null;
+        System.IO.StreamReader reader_template;
         private void Start_Button_Click(object sender, EventArgs e)
         {
             for (int cameraindex = 0; cameraindex < 2; cameraindex++)
@@ -277,11 +278,26 @@ namespace CompleteProgram
                 _filenmame = "set_cam" + cameraindex.ToString() + "_paramset" + "0" + ".txt";
                 frmCamera = new Camera(this, cameraindex, 0, 1);
                 frmCamera.ShowDialog();
+
+                using (reader_template = new System.IO.StreamReader(_filenmame))
+                {
+                    string line = reader_template.ReadLine();
+                    string[] words = line.Split('\t');
+                    if (words.Length != 192)
+                    {
+                        MessageBox.Show("Błąd odczytu szablonu", "Error");
+                        break;
+                    }
+                }
             }
         }
 
+        System.IO.StreamReader reader;
+        bool isEmpty;
         private void GetObjectPosButton_Click(object sender, EventArgs e)
         {
+            isEmpty = false;
+            
             MessageBox.Show("Please place object.", "Place Object");
             for (int cameraindex = 0; cameraindex < 2; cameraindex++)
             {
@@ -290,17 +306,25 @@ namespace CompleteProgram
                     _filenmame = "set_cam" + cameraindex.ToString() + "_paramset" + paramindex.ToString() + ".txt";
                     frmCamera = new Camera(this, cameraindex, paramindex, 1);
                     frmCamera.ShowDialog();
+
+                    using (reader = new System.IO.StreamReader(_filenmame))
+                    {
+                        if (reader.EndOfStream)
+                        {
+                            MessageBox.Show("Nie znaleziono punktu!", "Error");
+                            isEmpty = true;
+                            cameraindex = 3;
+                            break;
+                        }
+                    }
                 }
             }
 
-            frmObjCoords = new ObjectCoordinates(this, double.Parse(cam1x.Text), double.Parse(cam1y.Text), double.Parse(cam1z.Text),
-                double.Parse(cam2x.Text), double.Parse(cam2y.Text), double.Parse(cam2z.Text));
-            frmObjCoords.ShowDialog();
+            shwcordsform(sender, e);
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-
             Address1.Text = _calParams.LoginData[0, 0];
             Login1.Text = _calParams.LoginData[0, 1];
             Password1.Text = _calParams.LoginData[0, 2];
@@ -325,6 +349,41 @@ namespace CompleteProgram
         {
             frmCamera = new Camera(this, 1, DataSetSelect.SelectedIndex);
             frmCamera.ShowDialog();
+        }
+
+        private void shwcordsform(object sender, EventArgs e)
+        {
+            isEmpty = false;
+            for (int cameraindex = 0; cameraindex < 2; cameraindex++)
+            {
+                for (int paramindex = 1; paramindex < 5; paramindex++)
+                {
+                    _filenmame = "set_cam" + cameraindex.ToString() + "_paramset" + paramindex.ToString() + ".txt";
+                    using (reader = new System.IO.StreamReader(_filenmame))
+                    {
+                        if (reader.EndOfStream)
+                        {
+                            MessageBox.Show("Nie znaleziono punktu!", "Error");
+                            isEmpty = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (!isEmpty)
+            {
+                try
+                {
+                    frmObjCoords = new ObjectCoordinates(this, double.Parse(cam1x.Text), double.Parse(cam1y.Text), double.Parse(cam1z.Text),
+                        double.Parse(cam2x.Text), double.Parse(cam2y.Text), double.Parse(cam2z.Text));
+                    frmObjCoords.ShowDialog();
+                }
+                catch
+                {
+
+                }
+            }
         }
 
 
