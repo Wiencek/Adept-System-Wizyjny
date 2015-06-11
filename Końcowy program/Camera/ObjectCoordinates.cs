@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -96,8 +97,11 @@ namespace CompleteProgram
             T = new double[4, 4];
         }
 
+        MainForm mainFrm;
         public ObjectCoordinates(MainForm callingForm, double cam1x, double cam1y, double cam1z, double cam2x, double cam2y, double cam2z) : this()
         {
+            mainFrm = callingForm;
+
             textBox_x1.Text = cam1x.ToString();
             textBox_y1.Text = cam1y.ToString();
             textBox_z1.Text = cam1z.ToString();
@@ -366,11 +370,15 @@ namespace CompleteProgram
                     displayT.Text += "\n";
                 }
             }
+
+            using (StreamWriter writer = new StreamWriter("ObjectT.txt"))
+            {
+                writer.Write(displayT.Text);
+            }
         }
 
         bool isDone;
         string _filenmame;
-        int wordCounter;
         string line;
         string[] words;
         double[,,] objcoords;
@@ -427,10 +435,13 @@ namespace CompleteProgram
                 y23.Text = objcoords[1, 2, 1].ToString();
                 y24.Text = objcoords[1, 3, 1].ToString();
 
-                PerformButtonClick(Calculate);
+                //PerformButtonClick(Calculate);
+                Calculate_Click(sender, e);
 
                 isDone = true;
             }
+
+
         }
 
         delegate void PerformButtonClickCallback(Button button);
@@ -445,6 +456,12 @@ namespace CompleteProgram
             {
                 button.PerformClick();
             }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if(mainFrm.canClose)
+                this.Close();
         }
     }
 }

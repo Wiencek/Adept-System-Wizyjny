@@ -99,6 +99,12 @@
             this.DataSetSelect = new System.Windows.Forms.ComboBox();
             this.GetObjectPosButton = new System.Windows.Forms.Button();
             this.ShowCoordsForm = new System.Windows.Forms.Button();
+            this.PickUpObjectButton = new System.Windows.Forms.Button();
+            this.ObjectDoAllButton = new System.Windows.Forms.Button();
+            this.LoadParamsButton = new System.Windows.Forms.Button();
+            this.SaveParamsButton = new System.Windows.Forms.Button();
+            this.saveParamsFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openParamsFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -224,6 +230,7 @@
             this.cam1z.Name = "cam1z";
             this.cam1z.Size = new System.Drawing.Size(100, 20);
             this.cam1z.TabIndex = 85;
+            this.cam1z.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // cam1y
             // 
@@ -231,6 +238,7 @@
             this.cam1y.Name = "cam1y";
             this.cam1y.Size = new System.Drawing.Size(100, 20);
             this.cam1y.TabIndex = 84;
+            this.cam1y.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // cam1x
             // 
@@ -238,6 +246,7 @@
             this.cam1x.Name = "cam1x";
             this.cam1x.Size = new System.Drawing.Size(100, 20);
             this.cam1x.TabIndex = 83;
+            this.cam1x.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // panel4
             // 
@@ -257,6 +266,7 @@
             this.BR1.TabIndex = 27;
             this.BR1.Text = ">";
             this.BR1.UseVisualStyleBackColor = true;
+            this.BR1.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // BL1
             // 
@@ -269,6 +279,7 @@
             this.BL1.TabStop = true;
             this.BL1.Text = "<";
             this.BL1.UseVisualStyleBackColor = true;
+            this.BL1.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // panel5
             // 
@@ -288,6 +299,7 @@
             this.GR1.TabIndex = 27;
             this.GR1.Text = ">";
             this.GR1.UseVisualStyleBackColor = true;
+            this.GR1.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // GL1
             // 
@@ -300,6 +312,7 @@
             this.GL1.TabStop = true;
             this.GL1.Text = "<";
             this.GL1.UseVisualStyleBackColor = true;
+            this.GL1.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // panel6
             // 
@@ -319,6 +332,7 @@
             this.RR1.TabIndex = 27;
             this.RR1.Text = ">";
             this.RR1.UseVisualStyleBackColor = true;
+            this.RR1.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // RL1
             // 
@@ -331,6 +345,7 @@
             this.RL1.TabStop = true;
             this.RL1.Text = "<";
             this.RL1.UseVisualStyleBackColor = true;
+            this.RL1.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // BValue1
             // 
@@ -338,6 +353,7 @@
             this.BValue1.Name = "BValue1";
             this.BValue1.Size = new System.Drawing.Size(100, 20);
             this.BValue1.TabIndex = 79;
+            this.BValue1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // GValue1
             // 
@@ -345,6 +361,7 @@
             this.GValue1.Name = "GValue1";
             this.GValue1.Size = new System.Drawing.Size(100, 20);
             this.GValue1.TabIndex = 78;
+            this.GValue1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // RValue1
             // 
@@ -352,6 +369,7 @@
             this.RValue1.Name = "RValue1";
             this.RValue1.Size = new System.Drawing.Size(100, 20);
             this.RValue1.TabIndex = 77;
+            this.RValue1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // label14
             // 
@@ -386,6 +404,7 @@
             this.MinW1.Name = "MinW1";
             this.MinW1.Size = new System.Drawing.Size(75, 20);
             this.MinW1.TabIndex = 73;
+            this.MinW1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // MinH1
             // 
@@ -393,6 +412,7 @@
             this.MinH1.Name = "MinH1";
             this.MinH1.Size = new System.Drawing.Size(75, 20);
             this.MinH1.TabIndex = 72;
+            this.MinH1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // label17
             // 
@@ -429,7 +449,7 @@
             this.Password1.Size = new System.Drawing.Size(214, 20);
             this.Password1.TabIndex = 13;
             this.Password1.Text = "1234";
-            this.Password1.TextChanged += new System.EventHandler(this.LoginDataChange);
+            this.Password1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // label3
             // 
@@ -465,7 +485,7 @@
             this.Address1.Size = new System.Drawing.Size(214, 20);
             this.Address1.TabIndex = 9;
             this.Address1.Text = "http://192.168.2.3/mjpg/video.mjpg";
-            this.Address1.TextChanged += new System.EventHandler(this.LoginDataChange);
+            this.Address1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // Login1
             // 
@@ -474,7 +494,7 @@
             this.Login1.Size = new System.Drawing.Size(214, 20);
             this.Login1.TabIndex = 8;
             this.Login1.Text = "admin";
-            this.Login1.TextChanged += new System.EventHandler(this.LoginDataChange);
+            this.Login1.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // ShowCam2Frm
             // 
@@ -519,6 +539,7 @@
             this.cam2z.Name = "cam2z";
             this.cam2z.Size = new System.Drawing.Size(100, 20);
             this.cam2z.TabIndex = 91;
+            this.cam2z.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // cam2y
             // 
@@ -526,6 +547,7 @@
             this.cam2y.Name = "cam2y";
             this.cam2y.Size = new System.Drawing.Size(100, 20);
             this.cam2y.TabIndex = 90;
+            this.cam2y.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // cam2x
             // 
@@ -533,6 +555,7 @@
             this.cam2x.Name = "cam2x";
             this.cam2x.Size = new System.Drawing.Size(100, 20);
             this.cam2x.TabIndex = 89;
+            this.cam2x.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // panel7
             // 
@@ -552,6 +575,7 @@
             this.BR2.TabIndex = 27;
             this.BR2.Text = ">";
             this.BR2.UseVisualStyleBackColor = true;
+            this.BR2.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // BL2
             // 
@@ -564,6 +588,7 @@
             this.BL2.TabStop = true;
             this.BL2.Text = "<";
             this.BL2.UseVisualStyleBackColor = true;
+            this.BL2.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // panel8
             // 
@@ -583,6 +608,7 @@
             this.GR2.TabIndex = 27;
             this.GR2.Text = ">";
             this.GR2.UseVisualStyleBackColor = true;
+            this.GR2.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // GL2
             // 
@@ -595,6 +621,7 @@
             this.GL2.TabStop = true;
             this.GL2.Text = "<";
             this.GL2.UseVisualStyleBackColor = true;
+            this.GL2.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // panel9
             // 
@@ -614,6 +641,7 @@
             this.RR2.TabIndex = 27;
             this.RR2.Text = ">";
             this.RR2.UseVisualStyleBackColor = true;
+            this.RR2.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // RL2
             // 
@@ -626,6 +654,7 @@
             this.RL2.TabStop = true;
             this.RL2.Text = "<";
             this.RL2.UseVisualStyleBackColor = true;
+            this.RL2.CheckedChanged += new System.EventHandler(this.DataChange);
             // 
             // BValue2
             // 
@@ -633,6 +662,7 @@
             this.BValue2.Name = "BValue2";
             this.BValue2.Size = new System.Drawing.Size(100, 20);
             this.BValue2.TabIndex = 79;
+            this.BValue2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // GValue2
             // 
@@ -640,6 +670,7 @@
             this.GValue2.Name = "GValue2";
             this.GValue2.Size = new System.Drawing.Size(100, 20);
             this.GValue2.TabIndex = 78;
+            this.GValue2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // RValue2
             // 
@@ -647,6 +678,7 @@
             this.RValue2.Name = "RValue2";
             this.RValue2.Size = new System.Drawing.Size(100, 20);
             this.RValue2.TabIndex = 77;
+            this.RValue2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // label19
             // 
@@ -681,6 +713,7 @@
             this.MinW2.Name = "MinW2";
             this.MinW2.Size = new System.Drawing.Size(75, 20);
             this.MinW2.TabIndex = 73;
+            this.MinW2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // MinH2
             // 
@@ -688,6 +721,7 @@
             this.MinH2.Name = "MinH2";
             this.MinH2.Size = new System.Drawing.Size(75, 20);
             this.MinH2.TabIndex = 72;
+            this.MinH2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // label22
             // 
@@ -724,7 +758,7 @@
             this.Password2.Size = new System.Drawing.Size(214, 20);
             this.Password2.TabIndex = 13;
             this.Password2.Text = "1234";
-            this.Password2.TextChanged += new System.EventHandler(this.LoginDataChange);
+            this.Password2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // label4
             // 
@@ -760,7 +794,7 @@
             this.Address2.Size = new System.Drawing.Size(214, 20);
             this.Address2.TabIndex = 9;
             this.Address2.Text = "http://192.168.2.3/mjpg/video.mjpg";
-            this.Address2.TextChanged += new System.EventHandler(this.LoginDataChange);
+            this.Address2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // Login2
             // 
@@ -769,7 +803,7 @@
             this.Login2.Size = new System.Drawing.Size(214, 20);
             this.Login2.TabIndex = 8;
             this.Login2.Text = "admin";
-            this.Login2.TextChanged += new System.EventHandler(this.LoginDataChange);
+            this.Login2.TextChanged += new System.EventHandler(this.DataChange);
             // 
             // Start_Button
             // 
@@ -790,9 +824,9 @@
             "Green",
             "Pink",
             "Blue"});
-            this.DataSetSelect.Location = new System.Drawing.Point(551, 24);
+            this.DataSetSelect.Location = new System.Drawing.Point(569, 24);
             this.DataSetSelect.Name = "DataSetSelect";
-            this.DataSetSelect.Size = new System.Drawing.Size(293, 21);
+            this.DataSetSelect.Size = new System.Drawing.Size(275, 21);
             this.DataSetSelect.TabIndex = 60;
             this.DataSetSelect.Text = "Choose data set...";
             this.DataSetSelect.SelectedIndexChanged += new System.EventHandler(this.UpdateCalibrationData);
@@ -809,19 +843,67 @@
             // 
             // ShowCoordsForm
             // 
-            this.ShowCoordsForm.Location = new System.Drawing.Point(706, 300);
+            this.ShowCoordsForm.Location = new System.Drawing.Point(404, 22);
             this.ShowCoordsForm.Name = "ShowCoordsForm";
-            this.ShowCoordsForm.Size = new System.Drawing.Size(155, 49);
+            this.ShowCoordsForm.Size = new System.Drawing.Size(155, 22);
             this.ShowCoordsForm.TabIndex = 62;
             this.ShowCoordsForm.Text = "Show Coords Form";
             this.ShowCoordsForm.UseVisualStyleBackColor = true;
             this.ShowCoordsForm.Click += new System.EventHandler(this.shwcordsform);
+            // 
+            // PickUpObjectButton
+            // 
+            this.PickUpObjectButton.Location = new System.Drawing.Point(334, 300);
+            this.PickUpObjectButton.Name = "PickUpObjectButton";
+            this.PickUpObjectButton.Size = new System.Drawing.Size(155, 49);
+            this.PickUpObjectButton.TabIndex = 63;
+            this.PickUpObjectButton.Text = "Pick Up Object";
+            this.PickUpObjectButton.UseVisualStyleBackColor = true;
+            this.PickUpObjectButton.Click += new System.EventHandler(this.PickUpObjectButton_Click);
+            // 
+            // ObjectDoAllButton
+            // 
+            this.ObjectDoAllButton.Location = new System.Drawing.Point(495, 300);
+            this.ObjectDoAllButton.Name = "ObjectDoAllButton";
+            this.ObjectDoAllButton.Size = new System.Drawing.Size(155, 49);
+            this.ObjectDoAllButton.TabIndex = 64;
+            this.ObjectDoAllButton.Text = "Get Object Posistion and Pick It Up";
+            this.ObjectDoAllButton.UseVisualStyleBackColor = true;
+            this.ObjectDoAllButton.Click += new System.EventHandler(this.ObjectDoAllButton_Click);
+            // 
+            // LoadParamsButton
+            // 
+            this.LoadParamsButton.Location = new System.Drawing.Point(744, 300);
+            this.LoadParamsButton.Name = "LoadParamsButton";
+            this.LoadParamsButton.Size = new System.Drawing.Size(100, 24);
+            this.LoadParamsButton.TabIndex = 65;
+            this.LoadParamsButton.Text = "Load";
+            this.LoadParamsButton.UseVisualStyleBackColor = true;
+            this.LoadParamsButton.Click += new System.EventHandler(this.LoadParamsButton_Click);
+            // 
+            // SaveParamsButton
+            // 
+            this.SaveParamsButton.Location = new System.Drawing.Point(744, 325);
+            this.SaveParamsButton.Name = "SaveParamsButton";
+            this.SaveParamsButton.Size = new System.Drawing.Size(100, 24);
+            this.SaveParamsButton.TabIndex = 66;
+            this.SaveParamsButton.Text = "Save";
+            this.SaveParamsButton.UseVisualStyleBackColor = true;
+            this.SaveParamsButton.Click += new System.EventHandler(this.SaveParamsButton_Click);
+            // 
+            // openParamsFileDialog
+            // 
+            this.openParamsFileDialog.FileName = "openFileDialog1";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 370);
+            this.Controls.Add(this.SaveParamsButton);
+            this.Controls.Add(this.LoadParamsButton);
+            this.Controls.Add(this.ObjectDoAllButton);
+            this.Controls.Add(this.PickUpObjectButton);
             this.Controls.Add(this.ShowCoordsForm);
             this.Controls.Add(this.GetObjectPosButton);
             this.Controls.Add(this.DataSetSelect);
@@ -829,7 +911,6 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -926,5 +1007,11 @@
         private System.Windows.Forms.TextBox cam2x;
         private System.Windows.Forms.Button ShowCam2Frm;
         private System.Windows.Forms.Button ShowCoordsForm;
+        private System.Windows.Forms.Button PickUpObjectButton;
+        private System.Windows.Forms.Button ObjectDoAllButton;
+        private System.Windows.Forms.Button LoadParamsButton;
+        private System.Windows.Forms.Button SaveParamsButton;
+        private System.Windows.Forms.SaveFileDialog saveParamsFileDialog;
+        private System.Windows.Forms.OpenFileDialog openParamsFileDialog;
     }
 }

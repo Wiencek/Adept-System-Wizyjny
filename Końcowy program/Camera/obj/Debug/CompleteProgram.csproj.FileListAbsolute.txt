@@ -25,3 +25,5 @@ D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\Debug\Co
 D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\Debug\CompleteProgram.exe
 D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\Debug\CompleteProgram.pdb
 D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\Debug\CompleteProgram.MainForm.resources
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\Debug\AdeptLibrary.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\Debug\AdeptLibrary.pdb

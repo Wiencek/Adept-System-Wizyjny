@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using ActiveV2Lib;
+
 namespace CompleteProgram
 {
     public partial class MainForm : Form
     {
         int[,,] CalibrationData;
         string[,] LoginData;
-        bool isLoginChangeAllowed;
+        int[,] CamPosData;
+        bool isStartupParamsChangeAllowed;
         CalParams _calParams;
         int PreviousClaibrationDataSet;
         string _filenmame;
@@ -22,97 +26,95 @@ namespace CompleteProgram
         public MainForm()
         {
             InitializeComponent();
-            CalibrationData = new int[2, 5, 8] { { { 3, 4, 1, 170, -1, 110, -1, 40 }, { 9, 9, 1, 180, 1, 150, -1, 80 }, { 9, 9, -1, 100, 1, 90, -1, 110 }, { 9, 9, 1, 190, -1, 60, 1, 40 }, { 9, 9, -1, 170, 1, 100, 1, 130 } }, 
-                                                 { { 3, 4, 1, 130, -1, 150, -1, 50 }, { 9, 9, 1, 180, 1, 150, -1, 80 }, { 9, 9, -1, 150, 1, 100, -1, 110 }, { 9, 9, 1, 190, -1, 60, 1, 40 }, { 9, 9, -1, 170, 1, 100, 1, 130 } } }; ;
+            CalibrationData = new int[2, 5, 8];
+            CalibrationData[0, 0, 0] = 4;
+            CalibrationData[0, 0, 1] = 4;
+            CalibrationData[0, 0, 2] = 1;
+            CalibrationData[0, 0, 3] = 120;
+            CalibrationData[0, 0, 4] = -1;
+            CalibrationData[0, 0, 5] = 90;
+            CalibrationData[0, 0, 6] = -1;
+            CalibrationData[0, 0, 7] = 40;
+            CalibrationData[0, 1, 0] = 9;
+            CalibrationData[0, 1, 1] = 9;
+            CalibrationData[0, 1, 2] = 1;
+            CalibrationData[0, 1, 3] = 180;
+            CalibrationData[0, 1, 4] = 1;
+            CalibrationData[0, 1, 5] = 150;
+            CalibrationData[0, 1, 6] = -1;
+            CalibrationData[0, 1, 7] = 80;
+            CalibrationData[0, 2, 0] = 9;
+            CalibrationData[0, 2, 1] = 9;
+            CalibrationData[0, 2, 2] = -1;
+            CalibrationData[0, 2, 3] = 100;
+            CalibrationData[0, 2, 4] = 1;
+            CalibrationData[0, 2, 5] = 90;
+            CalibrationData[0, 2, 6] = -1;
+            CalibrationData[0, 2, 7] = 110;
+            CalibrationData[0, 3, 0] = 9;
+            CalibrationData[0, 3, 1] = 9;
+            CalibrationData[0, 3, 2] = 1;
+            CalibrationData[0, 3, 3] = 70;
+            CalibrationData[0, 3, 4] = -1;
+            CalibrationData[0, 3, 5] = 50;
+            CalibrationData[0, 3, 6] = 1;
+            CalibrationData[0, 3, 7] = 20;
+            CalibrationData[0, 4, 0] = 9;
+            CalibrationData[0, 4, 1] = 9;
+            CalibrationData[0, 4, 2] = -1;
+            CalibrationData[0, 4, 3] = 170;
+            CalibrationData[0, 4, 4] = 1;
+            CalibrationData[0, 4, 5] = 100;
+            CalibrationData[0, 4, 6] = 1;
+            CalibrationData[0, 4, 7] = 110;
+            CalibrationData[1, 0, 0] = 4;
+            CalibrationData[1, 0, 1] = 4;
+            CalibrationData[1, 0, 2] = 1;
+            CalibrationData[1, 0, 3] = 80;
+            CalibrationData[1, 0, 4] = -1;
+            CalibrationData[1, 0, 5] = 40;
+            CalibrationData[1, 0, 6] = -1;
+            CalibrationData[1, 0, 7] = 40;
+            CalibrationData[1, 1, 0] = 9;
+            CalibrationData[1, 1, 1] = 9;
+            CalibrationData[1, 1, 2] = 1;
+            CalibrationData[1, 1, 3] = 180;
+            CalibrationData[1, 1, 4] = 1;
+            CalibrationData[1, 1, 5] = 150;
+            CalibrationData[1, 1, 6] = -1;
+            CalibrationData[1, 1, 7] = 80;
+            CalibrationData[1, 2, 0] = 9;
+            CalibrationData[1, 2, 1] = 9;
+            CalibrationData[1, 2, 2] = -1;
+            CalibrationData[1, 2, 3] = 70;
+            CalibrationData[1, 2, 4] = 1;
+            CalibrationData[1, 2, 5] = 50;
+            CalibrationData[1, 2, 6] = -1;
+            CalibrationData[1, 2, 7] = 70;
+            CalibrationData[1, 3, 0] = 9;
+            CalibrationData[1, 3, 1] = 9;
+            CalibrationData[1, 3, 2] = 1;
+            CalibrationData[1, 3, 3] = 190;
+            CalibrationData[1, 3, 4] = -1;
+            CalibrationData[1, 3, 5] = 60;
+            CalibrationData[1, 3, 6] = 1;
+            CalibrationData[1, 3, 7] = 40;
+            CalibrationData[1, 4, 0] = 9;
+            CalibrationData[1, 4, 1] = 9;
+            CalibrationData[1, 4, 2] = -1;
+            CalibrationData[1, 4, 3] = 170;
+            CalibrationData[1, 4, 4] = 1;
+            CalibrationData[1, 4, 5] = 100;
+            CalibrationData[1, 4, 6] = 1;
+            CalibrationData[1, 4, 7] = 130;
             LoginData = new string[2, 3] { { "http://192.168.1.70/mjpg/video.mjpg", "admin", "1234" }, { "http://192.168.1.215/mjpg/video.mjpg", "admin", "1234" } };
-            _calParams = new CalParams(CalibrationData, LoginData);
-            _calParams[0, 0, 0] = 4;
-            _calParams[0, 0, 1] = 4;
-            _calParams[0, 0, 2] = 1;
-            _calParams[0, 0, 3] = 120;
-            _calParams[0, 0, 4] = -1;
-            _calParams[0, 0, 5] = 90;
-            _calParams[0, 0, 6] = -1;
-            _calParams[0, 0, 7] = 40;
-            _calParams[0, 1, 0] = 9;
-            _calParams[0, 1, 1] = 9;
-            _calParams[0, 1, 2] = 1;
-            _calParams[0, 1, 3] = 180;
-            _calParams[0, 1, 4] = 1;
-            _calParams[0, 1, 5] = 150;
-            _calParams[0, 1, 6] = -1;
-            _calParams[0, 1, 7] = 80;
-            _calParams[0, 2, 0] = 9;
-            _calParams[0, 2, 1] = 9;
-            _calParams[0, 2, 2] = -1;
-            _calParams[0, 2, 3] = 100;
-            _calParams[0, 2, 4] = 1;
-            _calParams[0, 2, 5] = 90;
-            _calParams[0, 2, 6] = -1;
-            _calParams[0, 2, 7] = 110;
-            _calParams[0, 3, 0] = 9;
-            _calParams[0, 3, 1] = 9;
-            _calParams[0, 3, 2] = 1;
-            _calParams[0, 3, 3] = 70;
-            _calParams[0, 3, 4] = -1;
-            _calParams[0, 3, 5] = 50;
-            _calParams[0, 3, 6] = 1;
-            _calParams[0, 3, 7] = 20;
-            _calParams[0, 4, 0] = 9;
-            _calParams[0, 4, 1] = 9;
-            _calParams[0, 4, 2] = -1;
-            _calParams[0, 4, 3] = 170;
-            _calParams[0, 4, 4] = 1;
-            _calParams[0, 4, 5] = 100;
-            _calParams[0, 4, 6] = 1;
-            _calParams[0, 4, 7] = 110;
-            _calParams[1, 0, 0] = 4;
-            _calParams[1, 0, 1] = 4;
-            _calParams[1, 0, 2] = 1;
-            _calParams[1, 0, 3] = 80;
-            _calParams[1, 0, 4] = -1;
-            _calParams[1, 0, 5] = 40;
-            _calParams[1, 0, 6] = -1;
-            _calParams[1, 0, 7] = 40;
-            _calParams[1, 1, 0] = 9;
-            _calParams[1, 1, 1] = 9;
-            _calParams[1, 1, 2] = 1;
-            _calParams[1, 1, 3] = 180;
-            _calParams[1, 1, 4] = 1;
-            _calParams[1, 1, 5] = 150;
-            _calParams[1, 1, 6] = -1;
-            _calParams[1, 1, 7] = 80;
-            _calParams[1, 2, 0] = 9;
-            _calParams[1, 2, 1] = 9;
-            _calParams[1, 2, 2] = -1;
-            _calParams[1, 2, 3] = 70;
-            _calParams[1, 2, 4] = 1;
-            _calParams[1, 2, 5] = 50;
-            _calParams[1, 2, 6] = -1;
-            _calParams[1, 2, 7] = 70;
-            _calParams[1, 3, 0] = 9;
-            _calParams[1, 3, 1] = 9;
-            _calParams[1, 3, 2] = 1;
-            _calParams[1, 3, 3] = 190;
-            _calParams[1, 3, 4] = -1;
-            _calParams[1, 3, 5] = 60;
-            _calParams[1, 3, 6] = 1;
-            _calParams[1, 3, 7] = 40;
-            _calParams[1, 4, 0] = 9;
-            _calParams[1, 4, 1] = 9;
-            _calParams[1, 4, 2] = -1;
-            _calParams[1, 4, 3] = 170;
-            _calParams[1, 4, 4] = 1;
-            _calParams[1, 4, 5] = 100;
-            _calParams[1, 4, 6] = 1;
-            _calParams[1, 4, 7] = 130;
+            CamPosData = new int[2, 3] { {390, -20, 470}, {-460, -37, 470} };
+            _calParams = new CalParams(CalibrationData, LoginData, CamPosData);
 
             PreviousClaibrationDataSet = -1;
-            isLoginChangeAllowed = false;
+            isStartupParamsChangeAllowed = false;
 
             DataSetSelect.DropDownStyle = ComboBoxStyle.DropDownList;
-            DataSetSelect.SelectedIndex = 0;
-
         }
 
         public CalParams calParams
@@ -125,9 +127,27 @@ namespace CompleteProgram
             get { return _filenmame; }
         }
 
-        private void LoginDataChange(object sender, EventArgs e)
+        private void MainForm_Shown(object sender, EventArgs e)
         {
-            if (isLoginChangeAllowed)
+            Address1.Text = _calParams.LoginData[0, 0];
+            Login1.Text = _calParams.LoginData[0, 1];
+            Password1.Text = _calParams.LoginData[0, 2];
+            Address2.Text = _calParams.LoginData[1, 0];
+            Login2.Text = _calParams.LoginData[1, 1];
+            Password2.Text = _calParams.LoginData[1, 2];
+            cam1x.Text = _calParams.CamPos[0, 0].ToString();
+            cam1y.Text = _calParams.CamPos[0, 1].ToString();
+            cam1z.Text = _calParams.CamPos[0, 2].ToString();
+            cam2x.Text = _calParams.CamPos[1, 0].ToString();
+            cam2y.Text = _calParams.CamPos[1, 1].ToString();
+            cam2z.Text = _calParams.CamPos[1, 2].ToString();
+            DataSetSelect.SelectedIndex = 0;
+            isStartupParamsChangeAllowed = true;
+        }
+
+        private void DataChange(object sender, EventArgs e)
+        {
+            if (isStartupParamsChangeAllowed)
             {
                 _calParams.LoginData[0, 0] = Address1.Text;
                 _calParams.LoginData[0, 1] = Login1.Text;
@@ -135,76 +155,84 @@ namespace CompleteProgram
                 _calParams.LoginData[1, 0] = Address2.Text;
                 _calParams.LoginData[1, 1] = Login2.Text;
                 _calParams.LoginData[1, 2] = Password2.Text;
+                _calParams.CamPos[0, 0] = int.Parse(cam1x.Text);
+                _calParams.CamPos[0, 1] = int.Parse(cam1y.Text);
+                _calParams.CamPos[0, 2] = int.Parse(cam1z.Text);
+                _calParams.CamPos[1, 0] = int.Parse(cam2x.Text);
+                _calParams.CamPos[1, 1] = int.Parse(cam2y.Text);
+                _calParams.CamPos[1, 2] = int.Parse(cam2z.Text);
+
+                if (PreviousClaibrationDataSet != -1)
+                {
+                    Int32.TryParse(MinH1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 0]);
+                    Int32.TryParse(MinW1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 1]);
+                    if (RL1.Checked == true)
+                    {
+                        CalibrationData[0, PreviousClaibrationDataSet, 2] = -1;
+                    }
+                    else
+                    {
+                        CalibrationData[0, PreviousClaibrationDataSet, 2] = 1;
+                    }
+                    Int32.TryParse(RValue1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 3]);
+                    if (GL1.Checked == true)
+                    {
+                        CalibrationData[0, PreviousClaibrationDataSet, 4] = -1;
+                    }
+                    else
+                    {
+                        CalibrationData[0, PreviousClaibrationDataSet, 4] = 1;
+                    }
+                    Int32.TryParse(GValue1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 5]);
+                    if (BL1.Checked == true)
+                    {
+                        CalibrationData[0, PreviousClaibrationDataSet, 6] = -1;
+                    }
+                    else
+                    {
+                        CalibrationData[0, PreviousClaibrationDataSet, 6] = 1;
+                    }
+                    Int32.TryParse(BValue1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 7]);
+
+                    Int32.TryParse(MinH2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 0]);
+                    Int32.TryParse(MinW2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 1]);
+                    if (RL2.Checked == true)
+                    {
+                        CalibrationData[1, PreviousClaibrationDataSet, 2] = -1;
+                    }
+                    else
+                    {
+                        CalibrationData[1, PreviousClaibrationDataSet, 2] = 1;
+                    }
+                    Int32.TryParse(RValue2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 3]);
+                    if (GL2.Checked == true)
+                    {
+                        CalibrationData[1, PreviousClaibrationDataSet, 4] = -1;
+                    }
+                    else
+                    {
+                        CalibrationData[1, PreviousClaibrationDataSet, 4] = 1;
+                    }
+                    Int32.TryParse(GValue2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 5]);
+                    if (BL2.Checked == true)
+                    {
+                        CalibrationData[1, PreviousClaibrationDataSet, 6] = -1;
+                    }
+                    else
+                    {
+                        CalibrationData[1, PreviousClaibrationDataSet, 6] = 1;
+                    }
+                    Int32.TryParse(BValue2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 7]);
+
+                    _calParams.CalParamsGetSet = CalibrationData;
+                }
             }
         }
 
         private void UpdateCalibrationData(object sender, EventArgs e)
         {
-            ComboBox combo = (ComboBox) sender;
-
-            if (PreviousClaibrationDataSet != -1)
-            {
-                Int32.TryParse(MinH1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 0]);
-                Int32.TryParse(MinW1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 1]);
-                if (RL1.Checked == true)
-                {
-                    CalibrationData[0, PreviousClaibrationDataSet, 2] = -1;
-                }
-                else
-                {
-                    CalibrationData[0, PreviousClaibrationDataSet, 2] = 1;
-                }
-                Int32.TryParse(RValue1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 3]);
-                if (GL1.Checked == true)
-                {
-                    CalibrationData[0, PreviousClaibrationDataSet, 4] = -1;
-                }
-                else
-                {
-                    CalibrationData[0, PreviousClaibrationDataSet, 4] = 1;
-                }
-                Int32.TryParse(GValue1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 5]);
-                if (BL1.Checked == true)
-                {
-                    CalibrationData[0, PreviousClaibrationDataSet, 6] = -1;
-                }
-                else
-                {
-                    CalibrationData[0, PreviousClaibrationDataSet, 6] = 1;
-                }
-                Int32.TryParse(BValue1.Text, out CalibrationData[0, PreviousClaibrationDataSet, 7]);
-
-                Int32.TryParse(MinH2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 0]);
-                Int32.TryParse(MinW2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 1]);
-                if (RL2.Checked == true)
-                {
-                    CalibrationData[1, PreviousClaibrationDataSet, 2] = -1;
-                }
-                else
-                {
-                    CalibrationData[1, PreviousClaibrationDataSet, 2] = 1;
-                }
-                Int32.TryParse(RValue2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 3]);
-                if (GL2.Checked == true)
-                {
-                    CalibrationData[1, PreviousClaibrationDataSet, 4] = -1;
-                }
-                else
-                {
-                    CalibrationData[1, PreviousClaibrationDataSet, 4] = 1;
-                }
-                Int32.TryParse(GValue2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 5]);
-                if (BL2.Checked == true)
-                {
-                    CalibrationData[1, PreviousClaibrationDataSet, 6] = -1;
-                }
-                else
-                {
-                    CalibrationData[1, PreviousClaibrationDataSet, 6] = 1;
-                }
-                Int32.TryParse(BValue2.Text, out CalibrationData[1, PreviousClaibrationDataSet, 7]);
-            }
-
+            ComboBox combo = DataSetSelect;
+            PreviousClaibrationDataSet = -1;
             MinH1.Text = CalibrationData[0, combo.SelectedIndex, 0].ToString();
             MinW1.Text = CalibrationData[0, combo.SelectedIndex, 1].ToString();
             if (CalibrationData[0, combo.SelectedIndex, 2] == -1)
@@ -323,22 +351,6 @@ namespace CompleteProgram
             shwcordsform(sender, e);
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
-        {
-            Address1.Text = _calParams.LoginData[0, 0];
-            Login1.Text = _calParams.LoginData[0, 1];
-            Password1.Text = _calParams.LoginData[0, 2];
-            Address2.Text = _calParams.LoginData[1, 0];
-            Login2.Text = _calParams.LoginData[1, 1];
-            Password2.Text = _calParams.LoginData[1, 2];
-            isLoginChangeAllowed = true;
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ShowCam1Frm_Click(object sender, EventArgs e)
         {
             frmCamera = new Camera(this, 0, DataSetSelect.SelectedIndex);
@@ -375,9 +387,11 @@ namespace CompleteProgram
             {
                 try
                 {
+                    _canClose = false;
                     frmObjCoords = new ObjectCoordinates(this, double.Parse(cam1x.Text), double.Parse(cam1y.Text), double.Parse(cam1z.Text),
                         double.Parse(cam2x.Text), double.Parse(cam2y.Text), double.Parse(cam2z.Text));
                     frmObjCoords.ShowDialog();
+                    _canClose = true;
                 }
                 catch
                 {
@@ -386,22 +400,255 @@ namespace CompleteProgram
             }
         }
 
+        private void SaveParamsButton_Click(object sender, EventArgs e)
+        {
+            saveParamsFileDialog.Filter = "Text files (*.txt)|*.txt";
+            DialogResult result = saveParamsFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                using (StreamWriter writer = new StreamWriter(saveParamsFileDialog.FileName))
+                {
+                    int counter = 0;
+                    foreach (string camlogindata in _calParams.LoginData)
+                    {
+                        counter++;
+                        if (counter < _calParams.LoginData.Length)
+                        {
+                            writer.Write(camlogindata + "\t");
+                        }
+                        else
+                        {
+                            writer.Write(camlogindata);
+                        }
+                    }
+                    writer.Write(writer.NewLine);
+                    counter = 0;
+                    foreach (int campos in _calParams.CamPos)
+                    {
+                        counter++;
+                        if (counter < _calParams.CamPos.Length)
+                        {
+                            writer.Write(campos.ToString() + "\t");
+                        }
+                        else
+                        {
+                            writer.Write(campos.ToString());
+                        }
+                    }
+                    writer.Write(writer.NewLine);
+                    counter = 0;
+                    foreach (int calparam in _calParams.CalParamsGetSet)
+                    {
+                        counter++;
+                        if (counter < _calParams.CalParamsGetSet.Length)
+                        {
+                            writer.Write(calparam.ToString() + "\t");
+                        }
+                        else
+                        {
+                            writer.Write(calparam.ToString());
+                        }
+                    }
+                }
+            }
+        }
 
+        private void LoadParamsButton_Click(object sender, EventArgs e)
+        {
+            openParamsFileDialog.Filter = "Text files (*.txt)|*.txt";
+            openParamsFileDialog.CheckFileExists = true;
+            openParamsFileDialog.CheckPathExists = true;
+            DialogResult result = openParamsFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                using (System.IO.StreamReader reader = new System.IO.StreamReader(openParamsFileDialog.FileName))
+                {
+                    int counter = 0;
+                    string line = reader.ReadLine();
+                    string[] words = line.Split('\t');
+                    for (int camnum = 0; camnum < _calParams.LoginData.GetLength(0); camnum++)
+                    {
+                        for (int i = 0; i < _calParams.LoginData.GetLength(1); i++)
+                        {
+                            _calParams.LoginData[camnum, i] = words[counter];
+                            counter++;
+                        }
+                    }
+                    counter = 0;
+                    line = reader.ReadLine();
+                    words = line.Split('\t');
+                    for (int camnum = 0; camnum < _calParams.CamPos.GetLength(0); camnum++)
+                    {
+                        for (int i = 0; i < _calParams.CamPos.GetLength(1); i++)
+                        {
+                            _calParams.CamPos[camnum, i] = int.Parse(words[counter]);
+                            counter++;
+                        }
+                    }
+                    counter = 0;
+                    line = reader.ReadLine();
+                    words = line.Split('\t');
+                    for (int camnum = 0; camnum < _calParams.CalParamsGetSet.GetLength(0); camnum++)
+                    {
+                        for (int paramtype = 0; paramtype < _calParams.CalParamsGetSet.GetLength(1); paramtype++)
+                        {
+                            for (int i = 0; i < _calParams.CalParamsGetSet.GetLength(2); i++)
+                            {
+                                _calParams.CalParamsGetSet[camnum, paramtype, i] = int.Parse(words[counter]);
+                                counter++;
+                            }
+                        }
+                    }
+
+                    isStartupParamsChangeAllowed = false;
+                    MainForm_Shown(sender, e);
+                    UpdateCalibrationData(sender, e);
+                }
+            }
+        }
+
+        int connected = 0;                          //Zmienna monitorująca połączenie
+        Communications con = new Communications();  //Klasa Komunikacji
+        MiscControl ruch = new MiscControl();       //Klasa Kontroli
+        Programs prog = new Programs();             //Klasa wykorzystywania V+
+        private void PickUpObjectButton_Click(object sender, EventArgs e)
+        {
+            int stat = 5;
+
+            con.Open("UDP", 0, "172.16.150.130", 0, ""); //Nawiązywanie połączenia - adres IP wpisany na sztywno
+            con.RequestEvents(1, out stat);          //Sprawdzanie, czy połączenie zostało nawiązane
+            if (stat == 0)
+            {
+                //label1.Text = "Connected";          //Wyświetlenie udanego połączenia się
+                //label4.Text = con.ControllerIPAddress;  //Adres IP z którym się łączyliśmy
+                connected = 1;                      //Zmiana zmiennej monitorującej na Połączony
+            }
+            else
+            {
+               // label1.Text = "Not connected";      //Wyświetlenie, że nie jesteśmy połączeni
+                //label4.Text = "";                   //Brak adresu IP
+                con.Close();                        //Zamknięcie połączenia
+                connected = 0;                      //Zmiana zmiennej monitorującej
+            }
+
+            if (connected == 1)
+            {
+                int flaga;                          //Zmienna błędu
+                stat = 5;
+                float x, y, z, rx, ry, rz;      //Zmienne współrzędne
+
+                //Obliczenie potrzebnych elementów macierzy do adepta
+                double ex, ey, ez, dx, dy;
+                double[,] Tobj = new double[4, 4];
+                string separator = "  ";
+                ex = 451.4;
+                ey = 12.275;
+                ez = -145.275;
+
+                using (System.IO.StreamReader reader = new System.IO.StreamReader("ObjectT.txt"))
+                {
+                    int counter;
+                    string line;
+                    string[] words;
+                    for (int n = 0; n < Tobj.GetLength(0); n++)
+                    {
+                        counter = 0;
+                        line = reader.ReadLine();
+                        words = line.Split(separator.ToCharArray());
+                        for (int m = 0; m < Tobj.GetLength(1); m++)
+                        {
+                            Tobj[n, m] = double.Parse(words[counter]);
+                            counter++;
+                            counter++;
+                        }
+                    }
+                }
+
+                dx = Tobj[0, 1] * ex + Tobj[0, 0] * ey + Tobj[0, 2] * ez;
+                dy = Tobj[1, 1] * ex + Tobj[1, 0] * ey + Tobj[1, 2] * ez;
+                        
+                //Koniec obliczania elementów macierzy do adepta
+
+                //z = -145
+                //rx = arccos(bx)
+                //ry = 90
+                //rz = -90
+                x = (float)dx;   //float.Parse(textBox1.Text);
+                y = (float)dy;   //float.Parse(textBox2.Text);
+                z = -145;
+                rx = 90; 
+                ry = 90; 
+                rz = -90;
+
+                ruch.SetL(con, "loc1", x, y, 200, rx, ry, rz, out flaga); //Wysyłanie zmiennej do sterownika
+
+                while (stat != 1)
+                {
+                    prog.Execute(con, "ruch()", 0, out stat);
+                }
+                stat = 5;
+
+                while (stat != 1)
+                {
+                    prog.Execute(con, "otw()", 1, out stat);       //Wywołanie funkcji 'otw'
+                }
+                stat = 5;
+
+                ruch.SetL(con, "loc1", x, y, z, rx, ry, rz, out flaga); //Wysyłanie zmiennej do sterownika
+
+                while (stat != 1)
+                {
+                    prog.Execute(con, "ruch()", 0, out stat);
+                }
+                stat = 5;
+
+                while (stat != 1)
+                {
+                    prog.Execute(con, "zamk()", 0, out stat);       //Wywołanie funkcji 'zamk'
+                }
+                stat = 5;
+
+                
+                ruch.SetL(con, "loc1", x, y, 200, rx, ry, rz, out flaga); //Wysyłanie zmiennej do sterownika
+
+                while (stat != 1)
+                {
+                    prog.Execute(con, "ruch()", 0, out stat);
+                }
+                stat = 5;
+
+                con.Close();
+            }
+        }
+
+        private void ObjectDoAllButton_Click(object sender, EventArgs e)
+        {
+            GetObjectPosButton_Click(sender, e);
+            PickUpObjectButton_Click(sender, e);
+        }
+
+        bool _canClose = true;
+        public bool canClose
+        {
+            get { return _canClose; }
+        }
     }
 
     public class CalParams
     {
-        private int[,,] _calParams = null;
         private string[,] _logindata = null;
-
+        private int[,] _camPos = null;
+        private int[,,] _calParams = null;
+        
         public CalParams()
         {
         }
 
-        public CalParams(int[,,] startupParams, string[,] startupLoginData)
+        public CalParams(int[,,] startupParams, string[,] startupLoginData, int[,] startupCamPos)
         {
-            _calParams = startupParams;
             _logindata = startupLoginData;
+            _camPos = startupCamPos;
+            _calParams = startupParams;
         }
 
         public string[,] LoginData
@@ -410,11 +657,22 @@ namespace CompleteProgram
             set { _logindata = value; }
         }
 
+        public int[,] CamPos
+        {
+            get { return _camPos; }
+            set { _camPos = value; }
+        }
+
+        public int[,,] CalParamsGetSet
+        {
+            get { return _calParams; }
+            set { _calParams = value; }
+        }
+
         public int this[int cameranum, int datanum, int i]
         {
             get { return _calParams[cameranum, datanum, i]; }
             set { _calParams[cameranum, datanum, i] = value; }
         }
-
     }
 }

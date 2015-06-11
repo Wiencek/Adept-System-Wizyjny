@@ -1,0 +1,60 @@
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe.config
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe.manifest
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\CompleteProgram.application
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\CompleteProgram.pdb
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Controls.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Imaging.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Math.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Video.DirectShow.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Video.dll
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Controls.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Imaging.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Math.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Video.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\bin\x86\Release\AForge.Video.DirectShow.xml
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csprojResolveAssemblyReference.cache
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.Camera.resources
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.MainForm.resources
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.ObjectCoordinates.resources
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.Properties.Resources.resources
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csproj.GenerateResource.Cache
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.exe.manifest
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.application
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.exe
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.pdb
+F:\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe.config
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.exe
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.pdb
+F:\Końcowy program\Camera\obj\x86\Release\Interop.ActiveV2Lib.dll
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csproj.ResolveComReference.cache
+F:\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe.manifest
+F:\Końcowy program\Camera\bin\x86\Release\CompleteProgram.application
+F:\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe
+F:\Końcowy program\Camera\bin\x86\Release\CompleteProgram.pdb
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Controls.dll
+F:\Końcowy program\Camera\bin\x86\Release\AForge.dll
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Imaging.dll
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Math.dll
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Video.DirectShow.dll
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Video.dll
+F:\Końcowy program\Camera\bin\x86\Release\AForge.xml
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Controls.xml
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Imaging.xml
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Math.xml
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Video.xml
+F:\Końcowy program\Camera\bin\x86\Release\AForge.Video.DirectShow.xml
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csprojResolveAssemblyReference.cache
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.Camera.resources
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.MainForm.resources
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.ObjectCoordinates.resources
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.Properties.Resources.resources
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csproj.GenerateResource.Cache
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.exe.manifest
+F:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.application
+I:\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe.config
+I:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csproj.ResolveComReference.cache
+I:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.exe
+I:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.pdb
