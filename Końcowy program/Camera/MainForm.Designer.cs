@@ -105,6 +105,8 @@
             this.SaveParamsButton = new System.Windows.Forms.Button();
             this.saveParamsFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openParamsFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.ConnectButton = new System.Windows.Forms.Button();
+            this.ConnectLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -895,11 +897,32 @@
             // 
             this.openParamsFileDialog.FileName = "openFileDialog1";
             // 
+            // ConnectButton
+            // 
+            this.ConnectButton.Location = new System.Drawing.Point(12, 22);
+            this.ConnectButton.Name = "ConnectButton";
+            this.ConnectButton.Size = new System.Drawing.Size(75, 22);
+            this.ConnectButton.TabIndex = 67;
+            this.ConnectButton.Text = "Connect";
+            this.ConnectButton.UseVisualStyleBackColor = true;
+            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
+            // 
+            // ConnectLabel
+            // 
+            this.ConnectLabel.AutoSize = true;
+            this.ConnectLabel.Location = new System.Drawing.Point(93, 26);
+            this.ConnectLabel.Name = "ConnectLabel";
+            this.ConnectLabel.Size = new System.Drawing.Size(80, 13);
+            this.ConnectLabel.TabIndex = 68;
+            this.ConnectLabel.Text = "Connect Status";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 370);
+            this.Controls.Add(this.ConnectLabel);
+            this.Controls.Add(this.ConnectButton);
             this.Controls.Add(this.SaveParamsButton);
             this.Controls.Add(this.LoadParamsButton);
             this.Controls.Add(this.ObjectDoAllButton);
@@ -931,6 +954,7 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1013,5 +1037,7 @@
         private System.Windows.Forms.Button SaveParamsButton;
         private System.Windows.Forms.SaveFileDialog saveParamsFileDialog;
         private System.Windows.Forms.OpenFileDialog openParamsFileDialog;
+        private System.Windows.Forms.Button ConnectButton;
+        private System.Windows.Forms.Label ConnectLabel;
     }
 }

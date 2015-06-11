@@ -124,14 +124,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompleteProgram.exe" size="111104">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompleteProgram.exe" size="111616">
       <assemblyIdentity name="CompleteProgram" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0Ma+OWGtRJOXZLFLDXLdLEq2as3ov5mCBwRN/2j6BJQ=</dsig:DigestValue>
+        <dsig:DigestValue>5qG7jy8k9tdOwHjsZ8pnKbffst9mc3dBjHhqsnJyldc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

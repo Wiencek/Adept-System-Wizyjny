@@ -58,3 +58,4 @@ I:\Końcowy program\Camera\bin\x86\Release\CompleteProgram.exe.config
 I:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csproj.ResolveComReference.cache
 I:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.exe
 I:\Końcowy program\Camera\obj\x86\Release\CompleteProgram.pdb
+D:\Data\My Documents\Studia\SVN Adept\trunk\Końcowy program\Camera\obj\x86\Release\CompleteProgram.csproj.ResolveComReference.cache

@@ -508,29 +508,33 @@ namespace CompleteProgram
         }
 
         int connected = 0;                          //Zmienna monitorująca połączenie
+        int stat = 0;
         Communications con = new Communications();  //Klasa Komunikacji
         MiscControl ruch = new MiscControl();       //Klasa Kontroli
         Programs prog = new Programs();             //Klasa wykorzystywania V+
-        private void PickUpObjectButton_Click(object sender, EventArgs e)
+        private void ConnectButton_Click(object sender, EventArgs e)
         {
-            int stat = 5;
+            stat = 5;
 
             con.Open("UDP", 0, "172.16.150.130", 0, ""); //Nawiązywanie połączenia - adres IP wpisany na sztywno
             con.RequestEvents(1, out stat);          //Sprawdzanie, czy połączenie zostało nawiązane
             if (stat == 0)
             {
-                //label1.Text = "Connected";          //Wyświetlenie udanego połączenia się
+                ConnectLabel.Text = "Connected";          //Wyświetlenie udanego połączenia się
                 //label4.Text = con.ControllerIPAddress;  //Adres IP z którym się łączyliśmy
                 connected = 1;                      //Zmiana zmiennej monitorującej na Połączony
             }
             else
             {
-               // label1.Text = "Not connected";      //Wyświetlenie, że nie jesteśmy połączeni
+                ConnectLabel.Text = "Not connected";      //Wyświetlenie, że nie jesteśmy połączeni
                 //label4.Text = "";                   //Brak adresu IP
                 con.Close();                        //Zamknięcie połączenia
                 connected = 0;                      //Zmiana zmiennej monitorującej
             }
+        }
 
+        private void PickUpObjectButton_Click(object sender, EventArgs e)
+        {
             if (connected == 1)
             {
                 int flaga;                          //Zmienna błędu
@@ -564,21 +568,23 @@ namespace CompleteProgram
                     }
                 }
 
+                //Pierwsza wersja:
                 dx = Tobj[0, 1] * ex + Tobj[0, 0] * ey + Tobj[0, 2] * ez;
                 dy = Tobj[1, 1] * ex + Tobj[1, 0] * ey + Tobj[1, 2] * ez;
+                //Druga wersja:
+                //dx = Tobj[0, 0] * ex + Tobj[0, 1] * ey + Tobj[0, 2] * ez;
+                //dy = -Tobj[1, 0] * ex + Tobj[1, 1] * ey + Tobj[1, 2] * ez;
                         
                 //Koniec obliczania elementów macierzy do adepta
+  
+                //Wyliczenie współrzędnych
+                x = (float)dx;  
+                y = (float)dy;  
+                z = -145;                                   //z = -145
+                rx = float(Math.Acos(Tobj[1, 0]) + 90);     //rx = arccos(bx)
+                ry = 90;                                    //ry = 90
+                rz = -90;                                   //rz = -90
 
-                //z = -145
-                //rx = arccos(bx)
-                //ry = 90
-                //rz = -90
-                x = (float)dx;   //float.Parse(textBox1.Text);
-                y = (float)dy;   //float.Parse(textBox2.Text);
-                z = -145;
-                rx = 90; 
-                ry = 90; 
-                rz = -90;
 
                 ruch.SetL(con, "loc1", x, y, 200, rx, ry, rz, out flaga); //Wysyłanie zmiennej do sterownika
 
@@ -616,8 +622,6 @@ namespace CompleteProgram
                     prog.Execute(con, "ruch()", 0, out stat);
                 }
                 stat = 5;
-
-                con.Close();
             }
         }
 
