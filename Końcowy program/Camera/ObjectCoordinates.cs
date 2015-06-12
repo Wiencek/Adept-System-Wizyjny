@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -175,6 +176,8 @@ namespace CompleteProgram
  
             Calibrate1.Enabled = false;
             Camera1Error.Enabled = true;
+
+            Calibration1Done.Set();
         }
 
         private void Load2_Click(object sender, EventArgs e)
@@ -239,6 +242,8 @@ namespace CompleteProgram
 
             Calibrate2.Enabled = false;
             Camera2Error.Enabled = true;
+
+            Calibration2Done.Set();
         }
 
         private void textBox_x1_Leave(object sender, EventArgs e)
@@ -377,18 +382,22 @@ namespace CompleteProgram
             }
         }
 
-        bool isDone;
-        string _filenmame;
-        string line;
-        string[] words;
-        double[,,] objcoords;
+        private AutoResetEvent FormShown = new AutoResetEvent(false);
+        private AutoResetEvent Calibration1Done = new AutoResetEvent(false);
+        private AutoResetEvent Calibration2Done = new AutoResetEvent(false);
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            bool isDone;
+            string _filenmame;
+            string line;
+            string[] words;
+            double[, ,] objcoords;
             objcoords = new double[2, 4, 2];
 
             isDone = false;
             while (!isDone)
             {
+                FormShown.WaitOne();
                 PerformButtonClick(Load1);
                 PerformButtonClick(Calibrate1);
                 PerformButtonClick(Load2);
@@ -435,13 +444,14 @@ namespace CompleteProgram
                 y23.Text = objcoords[1, 2, 1].ToString();
                 y24.Text = objcoords[1, 3, 1].ToString();
 
-                //PerformButtonClick(Calculate);
-                Calculate_Click(sender, e);
+                Calibration1Done.WaitOne();
+                Calibration2Done.WaitOne();
+                PerformButtonClick(Calculate);
 
                 isDone = true;
             }
 
-
+            System.Threading.Thread.Sleep(500);
         }
 
         delegate void PerformButtonClickCallback(Button button);
@@ -454,14 +464,21 @@ namespace CompleteProgram
             }
             else
             {
+                if(button.Name == "Calculate")
+                    tabControl1.SelectedIndex = 1;
                 button.PerformClick();
             }
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if(mainFrm.canClose)
+            if (mainFrm.canClose)
                 this.Close();
+        }
+
+        private void ObjectCoordinates_Shown(object sender, EventArgs e)
+        {
+            FormShown.Set();
         }
     }
 }

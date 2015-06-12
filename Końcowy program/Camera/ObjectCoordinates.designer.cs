@@ -1573,6 +1573,7 @@
             // 
             // backgroundWorker1
             // 
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
@@ -1585,6 +1586,7 @@
             this.MaximizeBox = false;
             this.Name = "ObjectCoordinates";
             this.Text = "Object Coordinates";
+            this.Shown += new System.EventHandler(this.ObjectCoordinates_Shown);
             this.tabControl1.ResumeLayout(false);
             this.CalibrationTab.ResumeLayout(false);
             this.CalibrationTab.PerformLayout();

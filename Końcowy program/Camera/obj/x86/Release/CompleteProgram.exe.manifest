@@ -42,16 +42,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="SMDiagnostics" version="4.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="System.ServiceModel.Internals" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.dll" size="17920">
       <assemblyIdentity name="AForge" version="2.2.5.0" publicKeyToken="C1DB6FF4EAA06AEB" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -124,26 +114,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompleteProgram.exe" size="111616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompleteProgram.exe" size="109056">
       <assemblyIdentity name="CompleteProgram" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5qG7jy8k9tdOwHjsZ8pnKbffst9mc3dBjHhqsnJyldc=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="pl\mscorlib.resources.dll" size="995528">
-      <assemblyIdentity name="mscorlib.resources" version="4.0.0.0" publicKeyToken="B77A5C561934E089" language="pl" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>myV0QIe20CLg2FYAVu45n6rxr2euB7H5ykdtH9uWRV4=</dsig:DigestValue>
+        <dsig:DigestValue>mXTVLucGHQUb7taesyY+ZoF7HgUuc/1eN9bWtRPkL5I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

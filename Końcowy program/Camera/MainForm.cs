@@ -507,6 +507,7 @@ namespace CompleteProgram
             }
         }
 
+        
         int connected = 0;                          //Zmienna monitorująca połączenie
         int stat = 0;
         Communications con = new Communications();  //Klasa Komunikacji
